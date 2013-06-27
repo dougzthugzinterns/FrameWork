@@ -11,9 +11,15 @@ namespace FrameWorkApp
 	[Register ("GoogleMapScreen")]
 	partial class GoogleMapScreen
 	{
+		[Outlet]
+		MonoTouch.MapKit.MKMapView mapViewOutlet { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (mapViewOutlet != null) {
+				mapViewOutlet.Dispose ();
+				mapViewOutlet = null;
+			}
 		}
 	}
 }

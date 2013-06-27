@@ -31,6 +31,8 @@ namespace FrameWorkApp
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
+			System.Console.Write ("Break Point 1");
+			System.Console.Write ("Break Point 2");
 		}
 
 		public override void ViewWillAppear (bool animated)

@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="198"/>
+            <point key="canvasLocation" x="313" y="-58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gzb-qu-7M8">
@@ -111,7 +111,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V7-ts-oxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="1400"/>
+            <point key="canvasLocation" x="-57" y="1481"/>
+        </scene>
+        <!--Google Map Screen-->
+        <scene sceneID="xxa-Ns-gXJ">
+            <objects>
+                <viewController id="tqP-53-BL6" customClass="GoogleMapScreen" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fDl-Yl-mgb">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="95l-ny-yfk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C3d-b6-p6X"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapViewOutlet" destination="95l-ny-yfk" id="zHZ-cD-A0W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w24-oc-WqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="1642"/>
         </scene>
         <!--Trip Summary Screen-->
         <scene sceneID="j2W-e9-Kzw">
@@ -129,7 +154,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5WL-Un-awx">
-                                <rect key="frame" x="40" y="66" width="240" height="315"/>
+                                <rect key="frame" x="40" y="66" width="240" height="304"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -137,7 +162,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mke-YJ-iFu">
-                                <rect key="frame" x="233" y="353" width="62" height="44"/>
+                                <rect key="frame" x="20" y="364" width="62" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
@@ -151,14 +176,44 @@
                                     <action selector="toHome:" destination="hUB-iG-h4m" eventType="touchUpInside" id="aIG-CT-SdB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d4o-Sv-BVI">
+                                <rect key="frame" x="216" y="364" width="93" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="View Map">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J03-hd-BdU">
+                                <rect key="frame" x="216" y="364" width="93" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="View Map">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tqP-53-BL6" kind="push" customClass="GoogleMapScreen" id="cAv-ii-IUN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="pZf-jM-j3o"/>
+                    <connections>
+                        <outlet property="TripSummaryGoogleMapButton" destination="J03-hd-BdU" id="p5a-Yg-9cU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLj-kK-Enp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="1984"/>
+            <point key="canvasLocation" x="-73" y="2196"/>
         </scene>
         <!--Achievements Screen - Achievements-->
         <scene sceneID="aDb-2q-OMq">
@@ -256,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vd-eh-8OG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527" y="790"/>
+            <point key="canvasLocation" x="-519" y="470"/>
         </scene>
         <!--Settings Screen - Settings-->
         <scene sceneID="TJZ-KV-luI">
@@ -331,7 +386,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUg-yn-Dzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527" y="198"/>
+            <point key="canvasLocation" x="-419" y="-458"/>
         </scene>
         <!--Flipside View Controller-->
         <scene sceneID="9">
@@ -375,10 +430,19 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AchievementsScreen" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AchievementsScreen.h"/>
+        </class>
         <class className="FlipsideViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="GoogleMapScreen" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoogleMapScreen.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapViewOutlet" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
@@ -396,13 +460,20 @@
         <class className="SettingsScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreen.h"/>
         </class>
+        <class className="StatsScreen" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsScreen.h"/>
+        </class>
         <class className="StopScreenn" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StopScreenn.h"/>
+        </class>
+        <class className="TripLogScreen" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TripLogScreen.h"/>
         </class>
         <class className="TripSummaryScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TripSummaryScreen.h"/>
             <relationships>
                 <relationship kind="action" name="toHome:"/>
+                <relationship kind="outlet" name="TripSummaryGoogleMapButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

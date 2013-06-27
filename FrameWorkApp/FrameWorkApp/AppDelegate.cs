@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using Google.Maps;
 
 namespace FrameWorkApp
 {
@@ -13,10 +14,16 @@ namespace FrameWorkApp
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		
+		//MapServices.ProvideAPIKey ("AIzaSyCgSqffPgmaQlNENxSehjScWg2VLDVxJ-w");
+
 		public override UIWindow Window {
 			get;
 			set;
+		}
+
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options){
+			MapServices.ProvideAPIKey ("AIzaSyCgSqffPgmaQlNENxSehjScWg2VLDVxJ-w");
+			return true;
 		}
 
 

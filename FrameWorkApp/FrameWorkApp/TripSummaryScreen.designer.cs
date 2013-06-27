@@ -11,11 +11,18 @@ namespace FrameWorkApp
 	[Register ("TripSummaryScreen")]
 	partial class TripSummaryScreen
 	{
+		[Outlet]
+		MonoTouch.UIKit.UIButton TripSummaryGoogleMapButton { get; set; }
+
 		[Action ("toHome:")]
 		partial void toHome (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (TripSummaryGoogleMapButton != null) {
+				TripSummaryGoogleMapButton.Dispose ();
+				TripSummaryGoogleMapButton = null;
+			}
 		}
 	}
 }
