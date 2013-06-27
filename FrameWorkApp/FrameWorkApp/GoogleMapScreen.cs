@@ -15,11 +15,7 @@ namespace FrameWorkApp
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
-
-			markersToAdd =  new CLLocationCoordinate2D[]{new CLLocationCoordinate2D(37.797865, -122.402526), 
-				new CLLocationCoordinate2D(37.897865, -122.502526),
-				new CLLocationCoordinate2D(37.997865, -122.602526),
-				new CLLocationCoordinate2D(37.697865, -122.302526)};
+			markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 		}
 
 
