@@ -1,0 +1,1 @@
+--debug --aot=mtriple=armv7-darwin,full,static,asmonly,direct-icalls,soft-debug,no-direct-calls,iphone-abi,outfile=/GoogleMaps.dll.armv7.s "/Users/David/Desktop/Suncorp/Repositories/FrameWorkApp/FrameWorkApp/bin/iPhone/Debug/FrameWorkApp.app/GoogleMaps.dll"

@@ -15,11 +15,7 @@ namespace FrameWorkApp
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
-
-			markersToAdd =  new CLLocationCoordinate2D[]{new CLLocationCoordinate2D(37.797865, -122.402526), 
-				new CLLocationCoordinate2D(37.897865, -122.502526),
-				new CLLocationCoordinate2D(37.997865, -122.602526),
-				new CLLocationCoordinate2D(37.697865, -122.302526)};
+			markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 		}
 
 
@@ -27,7 +23,7 @@ namespace FrameWorkApp
 		{
 			markersToAdd = markerLocationsToAdd;
 		}
-
+		//COmment
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -75,7 +71,7 @@ namespace FrameWorkApp
 			                                            (Math.Cos (minLat / degToRadDivisor)  * Math.Cos (maxLat / degToRadDivisor) * Math.Cos ((maxLong / degToRadDivisor) - (minLong / degToRadDivisor)))));
 
 			double zoom = Math.Floor (8 - Math.Log(1.6446 * dist / Math.Sqrt(2 * (mapdisplay * mapdisplay))) / Math.Log (2));
-			if(minLat == maxLat && minLong == maxLong){zoom = 11;}
+			if(minLat == maxLat && minLong == maxLong){zoom = 15;}
 
 			return (int) zoom;
 		}
