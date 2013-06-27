@@ -23,7 +23,7 @@ namespace FrameWorkApp
 		{
 			markersToAdd = markerLocationsToAdd;
 		}
-
+		//COmment
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -71,7 +71,7 @@ namespace FrameWorkApp
 			                                            (Math.Cos (minLat / degToRadDivisor)  * Math.Cos (maxLat / degToRadDivisor) * Math.Cos ((maxLong / degToRadDivisor) - (minLong / degToRadDivisor)))));
 
 			double zoom = Math.Floor (8 - Math.Log(1.6446 * dist / Math.Sqrt(2 * (mapdisplay * mapdisplay))) / Math.Log (2));
-			if(minLat == maxLat && minLong == maxLong){zoom = 11;}
+			if(minLat == maxLat && minLong == maxLong){zoom = 15;}
 
 			return (int) zoom;
 		}
