@@ -143,4 +143,8 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Safe-driving-mate-app-splash-screen.png" />
+  </ItemGroup>
 </Project>

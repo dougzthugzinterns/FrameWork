@@ -13,7 +13,7 @@ namespace FrameWorkApp
 		public StopScreenn (IntPtr handle) : base (handle)
 		{
 		}
-
+		public static ArrayList coordList = new ArrayList();
 		double currentMaxAvgAccel;
 		double avgaccel;
 		double threshold = .5;
@@ -24,7 +24,7 @@ namespace FrameWorkApp
 		//true if event is in progress
 		CLLocationCoordinate2D currentCoord = new CLLocationCoordinate2D ();
 		//container for current location
-		ArrayList coordList = new ArrayList ();
+
 		//list of behavior event coordinates
 		private CMMotionManager _motionManager;
 		// Returns current Latitude reading with accuracy within 10m

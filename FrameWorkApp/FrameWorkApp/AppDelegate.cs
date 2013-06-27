@@ -4,15 +4,18 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Google.Maps;
+using System.Collections;
 
 namespace FrameWorkApp
 {
+
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
 	// application events from iOS.
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
+		ArrayList coordList = new ArrayList ();
 		// class-level declarations
 		//MapServices.ProvideAPIKey ("AIzaSyCgSqffPgmaQlNENxSehjScWg2VLDVxJ-w");
 
@@ -23,6 +26,7 @@ namespace FrameWorkApp
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options){
 			MapServices.ProvideAPIKey ("AIzaSyCgSqffPgmaQlNENxSehjScWg2VLDVxJ-w");
+
 			return true;
 		}
 
