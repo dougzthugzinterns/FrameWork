@@ -17,6 +17,7 @@ namespace FrameWorkApp
 
 		partial void toHome (NSObject sender)
 		{
+			StopScreenn.coordList.Clear();
 			DismissModalViewControllerAnimated(true);
 		}
 
