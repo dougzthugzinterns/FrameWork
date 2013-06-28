@@ -18,6 +18,13 @@ namespace FrameWorkApp
 			tripHistory.addDataToTripHistoryFile (new Trip(DateTime.Now, StopScreenn.thisTripDataFile.readDataFromTripFile().Length));
 		}
 
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			//Updates tripSummaryEventLabel displaying events from this trip
+			tripSummaryEventsLabel.Text = StopScreenn.thisTripDataFile.readDataFromTripFile ().Length.ToString();
+
+		}
 		partial void toHome (NSObject sender)
 		{
 			StopScreenn.coordList.Clear();
