@@ -10,7 +10,7 @@ namespace FrameWorkApp
 {
 	public partial class StopScreenn : UIViewController
 	{
-		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite();
+		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite(true);
 
 		public StopScreenn (IntPtr handle) : base (handle)
 		{
