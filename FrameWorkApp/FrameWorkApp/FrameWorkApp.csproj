@@ -133,6 +133,9 @@
       <DependentUpon>GoogleMapScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\TripCoordinateReadWrite.cs" />
+    <Compile Include="Helper Classes\Trip.cs" />
+    <Compile Include="Helper Classes\TripHistoryReadWrite.cs" />
+    <Compile Include="Helper Classes\TableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

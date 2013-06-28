@@ -11,9 +11,15 @@ namespace FrameWorkApp
 	[Register ("TripLogScreen")]
 	partial class TripLogScreen
 	{
+		[Outlet]
+		MonoTouch.UIKit.UITableView tripLogTableViewOutlet { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (tripLogTableViewOutlet != null) {
+				tripLogTableViewOutlet.Dispose ();
+				tripLogTableViewOutlet = null;
+			}
 		}
 	}
 }

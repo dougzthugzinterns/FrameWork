@@ -1,16 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Info.plist">
-    <Files>
-      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="1" Column="1" />
-      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="35" Column="1" />
-      <File FileName="FrameWorkApp/Info.plist" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FrameWorkApp" expanded="True">
-            <Node name="Safe-driving-mate-app-splash-screen.png" selected="True" />
+            <Node name="Helper Classes" expanded="True">
+              <Node name="TripCoordinateReadWrite.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
