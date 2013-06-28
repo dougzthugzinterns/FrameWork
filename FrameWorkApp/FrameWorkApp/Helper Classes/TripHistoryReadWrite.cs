@@ -8,13 +8,16 @@ namespace FrameWorkApp
 {
 	public class TripHistoryReadWrite
 	{
-		String libraryCache;
+		String libraryAppFolder;
 		String filePath;
 
 		public TripHistoryReadWrite (Boolean clearExistingFile)
 		{
-			libraryCache= Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "..", "Library", "Caches");
-			filePath=Path.Combine (libraryCache, "currentTrip_SafeDrivingMate.txt");
+			libraryAppFolder= Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "..", "Library", "SafeDrivingMate");
+			if (!Directory.Exists (libraryAppFolder)) {
+				Directory.CreateDirectory (libraryAppFolder);
+			}
+			filePath=Path.Combine (libraryAppFolder, "tripHistory.txt");
 			if (clearExistingFile) {
 				File.WriteAllText (filePath, "");
 			}
@@ -29,6 +32,7 @@ namespace FrameWorkApp
 
 			currentTripFile_SteamWriter.Close ();
 			currentTripFile_FileStream.Close ();
+			Console.WriteLine ("Successfully Wrote to File");
 		}
 
 		public  Trip[] readDataFromTripHistoryFile(){

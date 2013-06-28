@@ -1,13 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/TripSummaryScreen.cs">
+    <Files>
+      <File FileName="FrameWorkApp/TripLogScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="13" Column="59" />
+      <File FileName="FrameWorkApp/StopScreenn.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/Main.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FrameWorkApp" expanded="True">
-            <Node name="Helper Classes" expanded="True">
-              <Node name="TripCoordinateReadWrite.cs" selected="True" />
-            </Node>
+            <Node name="TripSummaryScreen.cs" selected="True" />
           </Node>
         </State>
       </Pad>
