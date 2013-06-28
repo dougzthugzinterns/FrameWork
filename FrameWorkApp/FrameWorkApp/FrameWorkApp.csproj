@@ -153,5 +153,7 @@
     <BundleResource Include="Safe-driving-mate-app-splash-screen.png" />
     <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\trophy2.png" />
+    <BundleResource Include="Resources\StatsPicture.jpg" />
   </ItemGroup>
 </Project>
