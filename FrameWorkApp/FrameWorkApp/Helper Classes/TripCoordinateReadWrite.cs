@@ -4,18 +4,20 @@ using MonoTouch.Foundation;
 using System.Collections;
 using System.IO;
 
-namespace TripReadWrite
+namespace FrameWorkApp
 {
 	public class TripCoordinateReadWrite
 	{
 		String libraryCache;
 		String filePath;
 
-		public TripCoordinateReadWrite ()
+		public TripCoordinateReadWrite (Boolean clearExistingFile)
 		{
 			libraryCache= Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "..", "Library", "Caches");
 			filePath=Path.Combine (libraryCache, "currentTrip_SafeDrivingMate.txt");
-			File.WriteAllText(filePath, "");
+			if (clearExistingFile) {
+				File.WriteAllText (filePath, "");
+			}
 		}
 
 
@@ -24,7 +26,6 @@ namespace TripReadWrite
 			FileStream currentTripFile_FileStream = File.Open (filePath,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
 
-			Console.WriteLine (filePath);
 			currentTripFile_SteamWriter.WriteLine (newCoordiante.Latitude+","+newCoordiante.Longitude);
 
 			currentTripFile_SteamWriter.Close ();

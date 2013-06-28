@@ -21,5 +21,10 @@ namespace FrameWorkApp
 			DismissModalViewControllerAnimated(true);
 		}
 
+
+		public override void ViewDidUnload ()
+		{
+			StopScreenn.thisTripDataFile = new TripCoordinateReadWrite (true);
+		}
 	}
 }
