@@ -12,22 +12,25 @@ namespace FrameWorkApp
 	partial class StopScreenn
 	{
 		[Outlet]
+		MonoTouch.UIKit.UILabel avgAcc { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel eventCounter { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel latReading { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel longReading { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel avgAcc { get; set; }
-
-		[Outlet]
 		MonoTouch.UIKit.UILabel maxAvgAcc { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel eventCounter { get; set; }
 
 		[Action ("resetMaxValues:")]
 		partial void resetMaxValues (MonoTouch.Foundation.NSObject sender);
+
+		[Action ("stopButton:")]
+		partial void stopButton (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

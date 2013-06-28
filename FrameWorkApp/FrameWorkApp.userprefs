@@ -1,9 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/TripSummaryScreen.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Victoria’s iPhone 5!" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Helper Classes/RawGPS.cs">
     <Files>
-      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="27" Column="4" />
+      <File FileName="FrameWorkApp/StopScreenn.cs" Line="132" Column="142" />
+      <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="12" Column="69" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="FrameWorkApp" expanded="True" selected="True">
+            <Node name="Helper Classes" expanded="True" />
+            <Node name="MainViewController.cs" expanded="True" />
+            <Node name="StopScreenn.cs" expanded="True" />
+            <Node name="TripSummaryScreen.cs" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

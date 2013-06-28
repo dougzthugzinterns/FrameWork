@@ -12,6 +12,9 @@ namespace FrameWorkApp
 	partial class TripSummaryScreen
 	{
 		[Outlet]
+		MonoTouch.UIKit.UILabel distanceLabel { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel tripSummaryEventsLabel { get; set; }
 
 		[Outlet]
@@ -22,14 +25,19 @@ namespace FrameWorkApp
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (tripSummaryEventsLabel != null) {
+				tripSummaryEventsLabel.Dispose ();
+				tripSummaryEventsLabel = null;
+			}
+
 			if (TripSummaryGoogleMapButton != null) {
 				TripSummaryGoogleMapButton.Dispose ();
 				TripSummaryGoogleMapButton = null;
 			}
 
-			if (tripSummaryEventsLabel != null) {
-				tripSummaryEventsLabel.Dispose ();
-				tripSummaryEventsLabel = null;
+			if (distanceLabel != null) {
+				distanceLabel.Dispose ();
+				distanceLabel = null;
 			}
 		}
 	}

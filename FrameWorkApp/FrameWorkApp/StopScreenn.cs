@@ -10,12 +10,15 @@ namespace FrameWorkApp
 {
 	public partial class StopScreenn : UIViewController
 	{
-		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite(true);
+		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite (true);
+		RawGPS rawGPS = new RawGPS ();
+		public static double distanceTraveledForCurrentTrip = 0;
 
 		public StopScreenn (IntPtr handle) : base (handle)
 		{
 		}
-		public static ArrayList coordList = new ArrayList();
+
+		public static ArrayList coordList = new ArrayList ();
 		double currentMaxAvgAccel;
 		double avgaccel;
 		double threshold = .35;
@@ -27,9 +30,9 @@ namespace FrameWorkApp
 		//true if event is in progress
 		CLLocationCoordinate2D currentCoord = new CLLocationCoordinate2D ();
 		//container for current location
-
 		//list of behavior event coordinates
 		private CMMotionManager _motionManager;
+
 		// Returns current Latitude reading with accuracy within 10m
 		public double getCurrentLatitude ()
 		{
@@ -76,6 +79,9 @@ namespace FrameWorkApp
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			rawGPS.createCoordinatesWhenHeadingChangesToAddToList ();
+
 			double currentXAcceleration = 0;
 			double currentYAcceleration = 0;
 			double currentZAcceleration = 0;
@@ -93,10 +99,9 @@ namespace FrameWorkApp
 
 				//lowpassXAcceleration = (currentXAcceleration * klowpassfilterfactor) + (previousLowPassFilteredXAcceleration * (1.0 - klowpassfilterfactor));
 
-
 				avgaccel = Math.Sqrt ((data.UserAcceleration.X * data.UserAcceleration.X) + 
-				                      (data.UserAcceleration.Y * data.UserAcceleration.Y) +
-				                      (data.UserAcceleration.Z * data.UserAcceleration.Z));
+					(data.UserAcceleration.Y * data.UserAcceleration.Y) +
+					(data.UserAcceleration.Z * data.UserAcceleration.Z));
 
 				if (avgaccel > threshold) {
 					eventInProgress = true;
@@ -107,12 +112,10 @@ namespace FrameWorkApp
 					currentCoord.Latitude = getCurrentLatitude ();
 					currentCoord.Longitude = getCurrentLongitude ();
 					coordList.Add (currentCoord);
-					thisTripDataFile.addDataToTripFile(currentCoord);
+					thisTripDataFile.addDataToTripFile (currentCoord);
 					this.latReading.Text = currentCoord.Latitude.ToString ();
 					this.longReading.Text = currentCoord.Longitude.ToString ();
-
 				}
-
 
 				this.avgAcc.Text = avgaccel.ToString ("0.0000");
 
@@ -120,11 +123,13 @@ namespace FrameWorkApp
 					currentMaxAvgAccel = avgaccel;
 
 				this.maxAvgAcc.Text = currentMaxAvgAccel.ToString ("0.0000");
-
 			});
-
-
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		partial void stopButton (NSObject sender)
+		{
+			distanceTraveledForCurrentTrip = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(rawGPS.listOfTripLocationCoordinates));
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -132,10 +137,11 @@ namespace FrameWorkApp
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (true, animated);
 		}
+
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-			_motionManager.StopDeviceMotionUpdates();
+			_motionManager.StopDeviceMotionUpdates ();
 		}
 
 		public override void ViewDidUnload ()
@@ -144,6 +150,5 @@ namespace FrameWorkApp
 
 			ReleaseDesignerOutlets ();
 		}
-
 	}
 }
