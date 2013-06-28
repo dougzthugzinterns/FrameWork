@@ -10,9 +10,12 @@ namespace FrameWorkApp
 {
 	public partial class TripSummaryScreen : UIViewController
 	{
+		TripHistoryReadWrite tripHistory = new TripHistoryReadWrite(false);
 		public TripSummaryScreen (IntPtr handle) : base (handle)
 		{
-
+			//Add Recent trip to History
+			Console.WriteLine ("Adding Most Recent Trip to History");
+			tripHistory.addDataToTripHistoryFile (new Trip(DateTime.Now, StopScreenn.thisTripDataFile.readDataFromTripFile().Length));
 		}
 
 		partial void toHome (NSObject sender)

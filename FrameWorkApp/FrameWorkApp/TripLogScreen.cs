@@ -4,13 +4,51 @@ using System;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
 
 namespace FrameWorkApp
 {
 	public partial class TripLogScreen : UITableViewController
 	{
+		Trip[] tripHistory;
+
 		public TripLogScreen (IntPtr handle) : base (handle)
 		{
+			tripHistory = new TripHistoryReadWrite (false).readDataFromTripHistoryFile();
+		}
+
+		//Update Trip Log Table
+		private void updateTripLogTableView(){
+			string[] tableItems = new string[tripHistory.Length];
+			for(int i =0; i<tableItems.Length;i++){
+				tableItems [i] = tripHistory [i].ToString();
+			}
+			tripLogTableViewOutlet.Source = new TableSource (tableItems);
+			tripLogTableViewOutlet.ReloadData ();
+		}
+		public override void ViewDidLoad (){
+			//Load each Trip to Display
+
+			//Adding Clear button to top naviation
+			this.NavigationItem.SetRightBarButtonItem (
+				new UIBarButtonItem ("Clear History"
+			                    , UIBarButtonItemStyle.Plain
+			                    , (sender,args) => {
+			
+					new TripHistoryReadWrite (true);
+						tripHistory = new Trip[0];
+						updateTripLogTableView ();
+
+					})
+				, true);
+
+			updateTripLogTableView();
+		}
+
+		public override void ViewDidUnload(){
+			base.ViewDidUnload ();
+			//Remove Clear button on Top Navigation 
+			this.NavigationItem.SetRightBarButtonItem(null, false);
 		}
 	}
 }

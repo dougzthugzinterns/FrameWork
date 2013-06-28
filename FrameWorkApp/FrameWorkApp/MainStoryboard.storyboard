@@ -449,6 +449,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trip Log" id="Lgr-oO-DC8"/>
+                    <connections>
+                        <outlet property="tripLogTableViewOutlet" destination="KBp-9i-RXd" id="RpD-JO-rKb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owx-jU-g0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -572,6 +575,9 @@
         </class>
         <class className="TripLogScreen" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TripLogScreen.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tripLogTableViewOutlet" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="TripSummaryScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TripSummaryScreen.h"/>
