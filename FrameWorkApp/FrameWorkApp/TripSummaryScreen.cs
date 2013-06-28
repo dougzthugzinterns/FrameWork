@@ -19,6 +19,8 @@ namespace FrameWorkApp
 		{
 			StopScreenn.coordList.Clear();
 			DismissModalViewControllerAnimated(true);
+			StopScreenn.thisTripDataFile = new TripCoordinateReadWrite (true);
+
 		}
 
 

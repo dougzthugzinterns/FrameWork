@@ -11,6 +11,9 @@ namespace FrameWorkApp
 		String libraryCache;
 		String filePath;
 
+		//Creates new object called TripCoordinateReadWrite
+		//Takes in boolean... if True == clear out existing file... if false don't
+		//Saved in the Library/Caches directory
 		public TripCoordinateReadWrite (Boolean clearExistingFile)
 		{
 			libraryCache= Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "..", "Library", "Caches");
@@ -21,7 +24,7 @@ namespace FrameWorkApp
 		}
 
 
-
+		//Adds coordinate to file
 		public  void addDataToTripFile(CLLocationCoordinate2D newCoordiante){
 			FileStream currentTripFile_FileStream = File.Open (filePath,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
@@ -32,6 +35,7 @@ namespace FrameWorkApp
 			currentTripFile_FileStream.Close ();
 		}
 
+		//Reads everything back... Returns Coordinates as an array
 		public  CLLocationCoordinate2D[] readDataFromTripFile(){
 			ArrayList temporaryArrayListForData = new ArrayList();
 

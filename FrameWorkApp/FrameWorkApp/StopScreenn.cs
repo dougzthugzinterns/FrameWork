@@ -18,7 +18,8 @@ namespace FrameWorkApp
 		public static ArrayList coordList = new ArrayList();
 		double currentMaxAvgAccel;
 		double avgaccel;
-		double threshold = .5;
+		double threshold = .35;
+		double klowpassfilterfactor = .2;
 		//threshold for erratic behavior in G's
 		int eventcount = 0;
 		//number of events
@@ -75,6 +76,12 @@ namespace FrameWorkApp
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			double currentXAcceleration = 0;
+			double currentYAcceleration = 0;
+			double currentZAcceleration = 0;
+			double lowpassXAcceleration = 0;
+			double lowpassYAcceleration = 0;
+			double lowpassZAcceleration = 0;
 
 			avgaccel = 0;
 			currentMaxAvgAccel = 0;
@@ -84,7 +91,7 @@ namespace FrameWorkApp
 			_motionManager.StartDeviceMotionUpdates (NSOperationQueue.CurrentQueue, (data,error) =>
 			{
 
-				//UIAccelerationValue lowPassFilteredXAcceleration = (currentXAcceleration * kLowPassFilteringFactor) + (previousLowPassFilteredXAcceleration * (1.0 - kLowPassFilteringFactor));
+				//lowpassXAcceleration = (currentXAcceleration * klowpassfilterfactor) + (previousLowPassFilteredXAcceleration * (1.0 - klowpassfilterfactor));
 
 
 				avgaccel = Math.Sqrt ((data.UserAcceleration.X * data.UserAcceleration.X) + 
@@ -106,6 +113,7 @@ namespace FrameWorkApp
 
 				}
 
+
 				this.avgAcc.Text = avgaccel.ToString ("0.0000");
 
 				if (avgaccel > currentMaxAvgAccel)
@@ -123,6 +131,11 @@ namespace FrameWorkApp
 		{
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (true, animated);
+		}
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+			_motionManager.StopDeviceMotionUpdates();
 		}
 
 		public override void ViewDidUnload ()
