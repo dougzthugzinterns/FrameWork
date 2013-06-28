@@ -117,6 +117,12 @@ namespace FrameWorkApp
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+			this.NavigationController.SetNavigationBarHidden (true, animated);
+		}
+
 		public override void ViewDidUnload ()
 		{
 			base.ViewDidUnload ();
