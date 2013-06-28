@@ -155,5 +155,8 @@
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\trophy2.png" />
     <BundleResource Include="Resources\StatsPicture.jpg" />
+    <BundleResource Include="Kangaroo.png" />
+    <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy 2.png" />
+    <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy.png" />
   </ItemGroup>
 </Project>

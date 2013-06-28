@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Safe-driving-mate-app-splash-screen.png" id="wF7-g9-x3l">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Kangaroo.png" id="wF7-g9-x3l">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="543"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -548,7 +548,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Safe-driving-mate-app-splash-screen.png" width="320" height="480"/>
+        <image name="Kangaroo.png" width="320" height="480"/>
         <image name="StatsPicture.jpg" width="268" height="188"/>
         <image name="trophy2.png" width="1271" height="925"/>
     </resources>

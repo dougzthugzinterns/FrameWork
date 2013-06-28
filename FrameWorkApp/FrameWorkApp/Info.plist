@@ -12,6 +12,10 @@
 	<string>MainStoryboard</string>
 	<key>MinimumOSVersion</key>
 	<string>5.0</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Safe-driving-mate-app-splash-screen copy</string>
+		<string>Safe-driving-mate-app-splash-screen copy 2</string>
+	</array>
 </dict>
 </plist>
-
