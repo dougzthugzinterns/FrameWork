@@ -4,7 +4,7 @@ using MonoTouch.Foundation;
 using System.Collections;
 using System.IO;
 
-namespace TripReadWrite
+namespace FrameWorkApp
 {
 	public class TripCoordinateReadWrite
 	{

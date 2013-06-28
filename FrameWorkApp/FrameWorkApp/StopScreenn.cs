@@ -10,6 +10,8 @@ namespace FrameWorkApp
 {
 	public partial class StopScreenn : UIViewController
 	{
+		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite();
+
 		public StopScreenn (IntPtr handle) : base (handle)
 		{
 		}
@@ -98,7 +100,7 @@ namespace FrameWorkApp
 					currentCoord.Latitude = getCurrentLatitude ();
 					currentCoord.Longitude = getCurrentLongitude ();
 					coordList.Add (currentCoord);
-
+					thisTripDataFile.addDataToTripFile(currentCoord);
 					this.latReading.Text = currentCoord.Latitude.ToString ();
 					this.longReading.Text = currentCoord.Longitude.ToString ();
 

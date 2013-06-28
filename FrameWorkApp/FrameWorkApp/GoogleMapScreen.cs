@@ -15,7 +15,12 @@ namespace FrameWorkApp
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
-			markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
+			//From Internal Data Structures
+			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
+
+			//From File
+
+			markersToAdd = StopScreenn.thisTripDataFile.readDataFromTripFile ();
 		}
 
 

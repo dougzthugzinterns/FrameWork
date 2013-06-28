@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Helper Classes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -131,6 +132,7 @@
     <Compile Include="GoogleMapScreen.designer.cs">
       <DependentUpon>GoogleMapScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper Classes\TripCoordinateReadWrite.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
