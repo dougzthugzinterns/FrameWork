@@ -23,7 +23,6 @@ namespace FrameWorkApp
 			}
 		}
 
-
 		//Adds coordinate to file
 		public  void addDataToTripFile(CLLocationCoordinate2D newCoordiante){
 			FileStream currentTripFile_FileStream = File.Open (filePath,FileMode.Append);
@@ -44,12 +43,8 @@ namespace FrameWorkApp
 				CLLocationCoordinate2D newCoordinate = new CLLocationCoordinate2D (Double.Parse(splitLine[0]), Double.Parse(splitLine[1]));
 				temporaryArrayListForData.Add (newCoordinate);
 			}
-
 			return (CLLocationCoordinate2D[])temporaryArrayListForData.ToArray(typeof(CLLocationCoordinate2D));
-
 		}
-
-
 	}
 }
 

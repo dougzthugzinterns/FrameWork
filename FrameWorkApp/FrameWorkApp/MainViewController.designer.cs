@@ -11,11 +11,18 @@ namespace FrameWorkApp
 	[Register ("MainViewController")]
 	partial class MainViewController
 	{
+		[Outlet]
+		MonoTouch.UIKit.UIButton startButton { get; set; }
+
 		[Action ("showInfo:")]
 		partial void showInfo (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (startButton != null) {
+				startButton.Dispose ();
+				startButton = null;
+			}
 		}
 	}
 }
