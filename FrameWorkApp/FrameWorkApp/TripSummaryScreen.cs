@@ -4,38 +4,38 @@ using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
+using System.Collections.Generic;
+using MonoTouch.CoreLocation;
 
 namespace FrameWorkApp
 {
 	public partial class TripSummaryScreen : UIViewController
 	{
-		TripHistoryReadWrite tripHistory = new TripHistoryReadWrite(false);
-
+		SDMFileManager fileManager = new SDMFileManager();
+		RawGPS rawGPS = new RawGPS();
 		public TripSummaryScreen (IntPtr handle) : base (handle)
 		{
 			//Add Recent trip to History
-			Console.WriteLine ("Adding Most Recent Trip to History");
-			tripHistory.addDataToTripHistoryFile (new Trip(DateTime.Now, StopScreenn.thisTripDataFile.readDataFromTripFile().Length));
+			fileManager.addDataToTripLogFile(new Trip(DateTime.Now, StopScreenn.fileManager.readDataFromTripEventFile().Length));
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			//Updates tripSummaryEventLabel displaying events from this trip
-			tripSummaryEventsLabel.Text = StopScreenn.thisTripDataFile.readDataFromTripFile ().Length.ToString();
-			distanceLabel.Text = StopScreenn.distanceTraveledForCurrentTrip.ToString ();
+			tripSummaryEventsLabel.Text = StopScreenn.fileManager.readDataFromTripEventFile ().Length.ToString();
+			distanceLabel.Text = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(new List<CLLocation>(fileManager.readDataFromTripDistanceFile()))).ToString();
+
 		}
 
 		partial void toHome (NSObject sender)
 		{
 			StopScreenn.coordList.Clear();
 			DismissModalViewControllerAnimated(true);
-			StopScreenn.thisTripDataFile = new TripCoordinateReadWrite (true);
+			StopScreenn.fileManager.clearCurrentTripEventFile();
+			StopScreenn.fileManager.clearCurrentTripDistanceFile();
+
 		}
 
-		public override void ViewDidUnload ()
-		{
-			StopScreenn.thisTripDataFile = new TripCoordinateReadWrite (true);
-		}
 	}
 }
