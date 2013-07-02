@@ -18,19 +18,11 @@
 		</data>
 		<key>FrameWorkApp.exe</key>
 		<data>
-<<<<<<< HEAD
 		ypJe+FBPonVUUQHM2kJea+Diq9w=
 		</data>
 		<key>FrameWorkApp.exe.mdb</key>
 		<data>
 		PTnUuoghpiDVKsA+Mpwj7dtxmpw=
-=======
-		nemXiBHPZx0J79XgtNPxp7Ttrtg=
-		</data>
-		<key>FrameWorkApp.exe.mdb</key>
-		<data>
-		0lKb6yVwpoVQApvbfeThvAOEPcU=
->>>>>>> AddingSaveFeaturesToTripSummaryPage
 		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
@@ -322,11 +314,7 @@
 		</data>
 		<key>GoogleMaps.dll</key>
 		<data>
-<<<<<<< HEAD
 		Y07eB6Tqok+ZUZ8/Vvkgh9ofULg=
-=======
-		lEWBqKnVZppbAdHHT66UtLX5+48=
->>>>>>> AddingSaveFeaturesToTripSummaryPage
 		</data>
 		<key>Kangaroo.png</key>
 		<data>
@@ -334,7 +322,6 @@
 		</data>
 		<key>MainStoryboard.storyboardc/2-view-3.nib</key>
 		<data>
-<<<<<<< HEAD
 		gFUHaUrrEyE7xNgTXKZJkOQPlek=
 		</data>
 		<key>MainStoryboard.storyboardc/4mT-3D-Tp9-view-FNk-L8-0XN.nib</key>
@@ -416,89 +403,6 @@
 		<key>MonoTouchDebugConfiguration.txt</key>
 		<data>
 		mf62A7iirVjVMsERA++PTb8UaW4=
-=======
-		b+PPxwraz6AXikCpe2XB7xnvpCs=
-		</data>
-		<key>MainStoryboard.storyboardc/4mT-3D-Tp9-view-FNk-L8-0XN.nib</key>
-		<data>
-		t79MdCz88mDvPyAxdgqjS3aMnG0=
-		</data>
-		<key>MainStoryboard.storyboardc/6-view-7.nib</key>
-		<data>
-		mBxai3HVRUdyf1GcaWodbOSimy4=
-		</data>
-		<key>MainStoryboard.storyboardc/Bbr-SY-5c0-view-KBp-9i-RXd.nib</key>
-		<data>
-		ONZp6h3i/Y50OLkiTbLu4iPqopI=
-		</data>
-		<key>MainStoryboard.storyboardc/LP6-oL-3eh-view-1AY-gS-vnt.nib</key>
-		<data>
-		oIyKtO7G2lqdd7mF90zV1oVyQNQ=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-2.nib</key>
-		<data>
-		kYxf1yvYLuV9wtj5vIl2QxgiMRI=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-6.nib</key>
-		<data>
-		w4UCGng4xgd1S/i5Sq8U8xow3Mw=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-Bbr-SY-5c0.nib</key>
-		<data>
-		7zbXjM0iqeOKU/vN834SXJNV2Wg=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-DIL-rZ-GaU.nib</key>
-		<data>
-		c2EPcWkr4C5bMjeOon6RP2JW94E=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-gJm-rY-3ll.nib</key>
-		<data>
-		fSiMBVmkk97dJ5JHq/u8ORLxqfA=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-hUB-iG-h4m.nib</key>
-		<data>
-		a8DnI2UJsYYEltl3afrfHdj6/k4=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-jVA-17-YWH.nib</key>
-		<data>
-		Ka6p4t0nPsv+8O6Wj/B9jco5epY=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-tqP-53-BL6.nib</key>
-		<data>
-		wzEbJPQguV9XMYLQy1Uch4g730k=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-v8e-bz-MbY.nib</key>
-		<data>
-		CTXU7JkW1Ta85WM2bwFdurH10Fc=
-		</data>
-		<key>MainStoryboard.storyboardc/UIViewController-vVj-Ug-6YZ.nib</key>
-		<data>
-		ZQOxtDTZB3ZObZavSdY/lfElyOA=
-		</data>
-		<key>MainStoryboard.storyboardc/hUB-iG-h4m-view-9zI-SZ-YUE.nib</key>
-		<data>
-		O7zjl9gDyu0lN02zVlNuAG1l+8w=
-		</data>
-		<key>MainStoryboard.storyboardc/jVA-17-YWH-view-SoO-Dc-ARc.nib</key>
-		<data>
-		aMslWG6qc6q9AdrT4IkjqBhaZyY=
-		</data>
-		<key>MainStoryboard.storyboardc/tqP-53-BL6-view-fDl-Yl-mgb.nib</key>
-		<data>
-		zRu0UlpjpHdsJl9KwXEKgeeI3gI=
-		</data>
-		<key>MainStoryboard.storyboardc/v8e-bz-MbY-view-yQK-mI-lE0.nib</key>
-		<data>
-		t59GonmSHCHUzPp1KpPeZPDzFuQ=
-		</data>
-		<key>MainStoryboard.storyboardc/vVj-Ug-6YZ-view-SdQ-iL-7Mm.nib</key>
-		<data>
-		QVZ9Q1bzBHwSPzsHsNCNVdVbIA0=
-		</data>
-		<key>MonoTouchDebugConfiguration.txt</key>
-		<data>
-		ZoJunzlfGeehimTYDp0uyUxEz+w=
->>>>>>> AddingSaveFeaturesToTripSummaryPage
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -526,7 +430,6 @@
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-<<<<<<< HEAD
 		E4DT8V+cy4KtJ9POX5JXjpl1rlc=
 		</data>
 		<key>System.Core.dll.mdb</key>
@@ -560,41 +463,6 @@
 		<key>mscorlib.dll.mdb</key>
 		<data>
 		MjAp1HymllYROuFhULds97Co1HE=
-=======
-		lEHWsKhYbfwzvjMZhxaW5fQi4/M=
-		</data>
-		<key>System.Core.dll.mdb</key>
-		<data>
-		ggL90J5Sm1SszS+WZnJxQzZ6iOE=
-		</data>
-		<key>System.dll</key>
-		<data>
-		Sn0GgumQm5uyeswkqEZ3zhM+rIg=
-		</data>
-		<key>System.dll.mdb</key>
-		<data>
-		iCpPWNkQnO5/xBCjqtYwr8Bzigc=
-		</data>
-		<key>embedded.mobileprovision</key>
-		<data>
-		dMUipCWagzTSOmcXAAGzu8h7ppI=
-		</data>
-		<key>monotouch.dll</key>
-		<data>
-		lHh0HQBkTBDQB0B16LqODRHxULg=
-		</data>
-		<key>monotouch.dll.mdb</key>
-		<data>
-		T/ePnoYcsZecS72nCSjxxw7E7PU=
-		</data>
-		<key>mscorlib.dll</key>
-		<data>
-		ndZExhWCgUqumRU87S7Gi0YRLXw=
-		</data>
-		<key>mscorlib.dll.mdb</key>
-		<data>
-		jR46VWKtWLS8xKUa09+2SIgnsT0=
->>>>>>> AddingSaveFeaturesToTripSummaryPage
 		</data>
 		<key>trophy2.png</key>
 		<data>

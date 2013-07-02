@@ -6,8 +6,6 @@ namespace FrameWorkApp
 {
 	public partial class MainViewController : UIViewController
 	{
-		SDMFileManager fileManager= new SDMFileManager();
-
 		public MainViewController (IntPtr handle) : base (handle)
 		{
 			// Custom initialization
@@ -31,24 +29,10 @@ namespace FrameWorkApp
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			//Alert User of Previous Trip in Progress was Saved
-			UILocalNotification notification = new UILocalNotification();
-
-			//Phone Crashed during a Trip in Progress, write data recovered to trip log.
-			if (fileManager.currentTripInProgress()) {
-				notification.AlertAction = "Trip Data Recovered!";
-				notification.AlertBody = "We detected your phone has shut down during a trip, " +
-					"but good news we managed to recover your data up to that point your phone shut down.";
-				//Read Data from Recovered File.
-				fileManager.addDataToTripLogFile(new Trip(fileManager.getDateOfLastPointEnteredInCurrentTrip(), fileManager.readDataFromTripEventFile().Length));
-				fileManager.clearCurrentTripEventFile();
-				fileManager.clearCurrentTripDistanceFile ();
-				//Display Alert
-				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
-			} 
-
-
+			
+			// Perform any additional setup after loading the view, typically from a nib.
+			System.Console.Write ("Break Point 1");
+			System.Console.Write ("Break Point 2");
 		}
 
 		public override void ViewWillAppear (bool animated)

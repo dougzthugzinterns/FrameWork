@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 --debug --aot=mtriple=armv7-darwin,full,static,asmonly,direct-icalls,no-direct-calls,iphone-abi,outfile=/System.Core.dll.armv7.s "/Users/victoriamcie/Desktop/DOUGZTHUGZ PROJECTS/FrameWork/FrameWorkApp/FrameWorkApp/bin/iPhone/Debug/FrameWorkApp.app/System.Core.dll"
-=======
---debug --aot=mtriple=armv7-darwin,full,static,asmonly,direct-icalls,no-direct-calls,iphone-abi,outfile=/System.Core.dll.armv7.s "/Users/schmidee/Repository/FrameWork/FrameWorkApp/FrameWorkApp/bin/iPhone/Debug/FrameWorkApp.app/System.Core.dll"
->>>>>>> AddingSaveFeaturesToTripSummaryPage

@@ -36,21 +36,6 @@ namespace FrameWorkApp
 		MonoTouch.UIKit.UILabel tripSummaryEventsLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel sharpTurnLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel hardBrakesLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel fastAccelsLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel totalBreakAcessLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel pointsEarnedLabel { get; set; }
-
-		[Outlet]
 		MonoTouch.UIKit.UIButton TripSummaryGoogleMapButton { get; set; }
 
 		[Action ("toHome:")]
@@ -97,14 +82,11 @@ namespace FrameWorkApp
 				TripSummaryGoogleMapButton.Dispose ();
 				TripSummaryGoogleMapButton = null;
 			}
-<<<<<<< HEAD
 
 			if (numHardStartLabel != null) {
 				numHardStartLabel.Dispose ();
 				numHardStartLabel = null;
 			}
-=======
->>>>>>> AddingSaveFeaturesToTripSummaryPage
 		}
 	}
 }
