@@ -25,7 +25,11 @@ namespace FrameWorkApp
 			//Updates tripSummaryEventLabel displaying events from this trip
 			tripSummaryEventsLabel.Text = StopScreenn.fileManager.readDataFromTripEventFile ().Length.ToString();
 			distanceLabel.Text = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(new List<CLLocation>(fileManager.readDataFromTripDistanceFile()))).ToString();
-
+			hardBrakesLabel.Text = StopScreenn.numberHardStops.ToString ();
+			numHardStartLabel.Text = StopScreenn.numberHardStarts.ToString ();
+			fastAccelsLabel.Text = StopScreenn.numberHardStarts.ToString ();
+			double total = (StopScreenn.numberHardStops) + (StopScreenn.numberHardStarts);
+			totalBreakAcessLabel.Text = total.ToString ();
 		}
 
 		partial void toHome (NSObject sender)

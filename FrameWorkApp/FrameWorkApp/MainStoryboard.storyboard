@@ -193,11 +193,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
+=======
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aaQ-za-Y86">
+                                <rect key="frame" x="94" y="197" width="199" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed At Event: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dWE-kx-Z6M">
+                                <rect key="frame" x="20" y="226" width="273" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed After Event: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lg3-5k-VnO">
+                                <rect key="frame" x="20" y="255" width="269" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+>>>>>>> addHardStopsStartsAccel
                         </subviews>
                         <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="aYe-7l-xsv"/>
                     <connections>
+                        <outlet property="SpeedAfterEventLabel" destination="Lg3-5k-VnO" id="W9t-SL-nYe"/>
+                        <outlet property="SpeedAtEventLabel" destination="dWE-kx-Z6M" id="R94-XG-QgC"/>
                         <outlet property="avgAcc" destination="Iml-LG-DoP" id="3zv-74-oF8"/>
                         <outlet property="eventCounter" destination="aaQ-za-Y86" id="fGz-FM-gO5"/>
                         <outlet property="latReading" destination="IAE-L3-rV3" id="1lu-dQ-nwe"/>
@@ -334,21 +360,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fast Acceleration:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="08g-Jq-ebB">
-                                <rect key="frame" x="20" y="183" width="137" height="21"/>
+                                <rect key="frame" x="20" y="212" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Brakes/Accelerations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLb-Ds-myL">
-                                <rect key="frame" x="20" y="212" width="207" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Erratic Behaviors:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLb-Ds-myL">
+                                <rect key="frame" x="20" y="241" width="177" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Points Earned:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mSX-Kp-PtK">
-                                <rect key="frame" x="20" y="241" width="112" height="21"/>
+                                <rect key="frame" x="20" y="270" width="112" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -369,21 +395,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OU3-k5-Ds9">
-                                <rect key="frame" x="235" y="183" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3AP-Z3-igk">
                                 <rect key="frame" x="235" y="212" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gv9-Cv-lck">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3AP-Z3-igk">
                                 <rect key="frame" x="235" y="241" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gv9-Cv-lck">
+                                <rect key="frame" x="235" y="270" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hard Starts:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZzO-7c-fgc">
+                                <rect key="frame" x="20" y="182" width="148" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eym-xX-xmc">
+                                <rect key="frame" x="235" y="182" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -398,6 +438,7 @@
                         <outlet property="distanceLabel" destination="0yw-EV-Sok" id="HIg-h7-5w1"/>
                         <outlet property="fastAccelsLabel" destination="OU3-k5-Ds9" id="UxV-rK-dE1"/>
                         <outlet property="hardBrakesLabel" destination="WZW-Sf-r3c" id="AIm-XE-HZU"/>
+                        <outlet property="numHardStartLabel" destination="Eym-xX-xmc" id="EUA-Sy-L1z"/>
                         <outlet property="pointsEarnedLabel" destination="gv9-Cv-lck" id="g40-SL-Qdy"/>
                         <outlet property="sharpTurnLabel" destination="c8F-D8-Rki" id="P2v-Br-z8B"/>
                         <outlet property="totalBreakAcessLabel" destination="3AP-Z3-igk" id="OPV-64-VFF"/>
@@ -685,6 +726,8 @@
             <relationships>
                 <relationship kind="action" name="resetMaxValues:"/>
                 <relationship kind="action" name="stopButton:"/>
+                <relationship kind="outlet" name="SpeedAfterEventLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="SpeedAtEventLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="avgAcc" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="eventCounter" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="latReading" candidateClass="UILabel"/>
@@ -706,6 +749,7 @@
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fastAccelsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hardBrakesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numHardStartLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pointsEarnedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sharpTurnLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalBreakAcessLabel" candidateClass="UILabel"/>

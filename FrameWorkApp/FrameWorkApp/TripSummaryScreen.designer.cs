@@ -15,22 +15,25 @@ namespace FrameWorkApp
 		MonoTouch.UIKit.UILabel distanceLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel tripSummaryEventsLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel sharpTurnLabel { get; set; }
+		MonoTouch.UIKit.UILabel fastAccelsLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel hardBrakesLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel fastAccelsLabel { get; set; }
+		MonoTouch.UIKit.UILabel numHardStartLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel pointsEarnedLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel sharpTurnLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel totalBreakAcessLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel pointsEarnedLabel { get; set; }
+		MonoTouch.UIKit.UILabel tripSummaryEventsLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton TripSummaryGoogleMapButton { get; set; }
@@ -78,6 +81,11 @@ namespace FrameWorkApp
 			if (TripSummaryGoogleMapButton != null) {
 				TripSummaryGoogleMapButton.Dispose ();
 				TripSummaryGoogleMapButton = null;
+			}
+
+			if (numHardStartLabel != null) {
+				numHardStartLabel.Dispose ();
+				numHardStartLabel = null;
 			}
 		}
 	}
