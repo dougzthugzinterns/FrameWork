@@ -18,6 +18,21 @@ namespace FrameWorkApp
 		MonoTouch.UIKit.UILabel tripSummaryEventsLabel { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel sharpTurnLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel hardBrakesLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel fastAccelsLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel totalBreakAcessLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel pointsEarnedLabel { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton TripSummaryGoogleMapButton { get; set; }
 
 		[Action ("toHome:")]
@@ -25,19 +40,44 @@ namespace FrameWorkApp
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (distanceLabel != null) {
+				distanceLabel.Dispose ();
+				distanceLabel = null;
+			}
+
 			if (tripSummaryEventsLabel != null) {
 				tripSummaryEventsLabel.Dispose ();
 				tripSummaryEventsLabel = null;
 			}
 
+			if (sharpTurnLabel != null) {
+				sharpTurnLabel.Dispose ();
+				sharpTurnLabel = null;
+			}
+
+			if (hardBrakesLabel != null) {
+				hardBrakesLabel.Dispose ();
+				hardBrakesLabel = null;
+			}
+
+			if (fastAccelsLabel != null) {
+				fastAccelsLabel.Dispose ();
+				fastAccelsLabel = null;
+			}
+
+			if (totalBreakAcessLabel != null) {
+				totalBreakAcessLabel.Dispose ();
+				totalBreakAcessLabel = null;
+			}
+
+			if (pointsEarnedLabel != null) {
+				pointsEarnedLabel.Dispose ();
+				pointsEarnedLabel = null;
+			}
+
 			if (TripSummaryGoogleMapButton != null) {
 				TripSummaryGoogleMapButton.Dispose ();
 				TripSummaryGoogleMapButton = null;
-			}
-
-			if (distanceLabel != null) {
-				distanceLabel.Dispose ();
-				distanceLabel = null;
 			}
 		}
 	}

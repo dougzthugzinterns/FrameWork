@@ -10,7 +10,7 @@ namespace FrameWorkApp
 {
 	public partial class StopScreenn : UIViewController
 	{
-		public static TripCoordinateReadWrite thisTripDataFile = new TripCoordinateReadWrite (true);
+		public static SDMFileManager fileManager = new SDMFileManager ();
 		RawGPS rawGPS = new RawGPS ();
 		public static double distanceTraveledForCurrentTrip = 0;
 
@@ -112,7 +112,7 @@ namespace FrameWorkApp
 					currentCoord.Latitude = getCurrentLatitude ();
 					currentCoord.Longitude = getCurrentLongitude ();
 					coordList.Add (currentCoord);
-					thisTripDataFile.addDataToTripFile (currentCoord);
+					fileManager.addEventToTripEventFile (currentCoord);
 					this.latReading.Text = currentCoord.Latitude.ToString ();
 					this.longReading.Text = currentCoord.Longitude.ToString ();
 				}

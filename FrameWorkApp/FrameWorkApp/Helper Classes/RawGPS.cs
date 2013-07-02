@@ -9,6 +9,8 @@ namespace FrameWorkApp
 {
 	public partial class RawGPS
 	{
+		SDMFileManager fileManager = new SDMFileManager();
+
 		public List<CLLocation> listOfTripLocationCoordinates { get; set; }
 		CLLocationManager commonLocationManager;
 
@@ -71,8 +73,12 @@ namespace FrameWorkApp
 			}
 
 			commonLocationManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
-				temp = new CLLocation (this.getCurrentUserLatitude (), this.getCurrentUserLongitude ());
+				Double lat= this.getCurrentUserLatitude ();
+				Double longt=this.getCurrentUserLongitude ();
+				temp = new CLLocation (lat, longt);
 				listOfTripLocationCoordinates.Add (temp);
+				//Add to Temp File
+				fileManager.addLocationToTripDistanceFile(new CLLocationCoordinate2D(lat, longt));
 			};
 		}
 

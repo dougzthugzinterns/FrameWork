@@ -14,7 +14,7 @@ namespace FrameWorkApp
 
 		public TripLogScreen (IntPtr handle) : base (handle)
 		{
-			tripHistory = new TripHistoryReadWrite (false).readDataFromTripHistoryFile();
+			tripHistory =  new SDMFileManager().readDataFromTripLogFile();
 		}
 
 		//Update Trip Log Table
@@ -35,7 +35,7 @@ namespace FrameWorkApp
 			                    , UIBarButtonItemStyle.Plain
 			                    , (sender,args) => {
 			
-					new TripHistoryReadWrite (true);
+				new SDMFileManager().clearTripLogFile();
 						tripHistory = new Trip[0];
 						updateTripLogTableView ();
 
