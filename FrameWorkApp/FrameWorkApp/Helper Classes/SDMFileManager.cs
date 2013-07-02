@@ -40,7 +40,7 @@ namespace FrameWorkApp
 			//Console.WriteLine ("Current Trip Distance File Path: " + currentTripDistanceFile);
 
 		}
-//Overall Helper Methods
+		//Overall Helper Methods
 
 		//Returns True of Trip is still in progress, false if not.
 		public Boolean currentTripInProgress(){

@@ -143,9 +143,6 @@
     <Compile Include="Helper Classes\RawGPS.cs" />
     <Compile Include="Helper Classes\SDMFileManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="MainStoryboard.storyboard" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <XamarinComponentReference Include="googlemapsios">
@@ -156,17 +153,18 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Safe-driving-mate-app-splash-screen.png" />
     <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\trophy2.png" />
     <BundleResource Include="Resources\StatsPicture.jpg" />
-    <BundleResource Include="Kangaroo.png" />
     <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy 2.png" />
     <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy.png" />
     <BundleResource Include="Resources\StartFinalHighlighted.png" />
     <BundleResource Include="Resources\StartFinalDefault.png" />
     <BundleResource Include="Resources\finalstop1.png" />
     <BundleResource Include="Resources\finalstop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
 </Project>
