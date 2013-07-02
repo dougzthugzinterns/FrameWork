@@ -13,6 +13,10 @@ namespace FrameWorkApp
 		public static SDMFileManager fileManager = new SDMFileManager ();
 		RawGPS rawGPS = new RawGPS ();
 		public static double distanceTraveledForCurrentTrip = 0;
+		double hardStartCount = 0;
+		double hardStopCount = 0;
+		double hardAccelCount = 0;
+		const double STARTSPEEDTHRESHOLD = 5;
 
 		public StopScreenn (IntPtr handle) : base (handle)
 		{
@@ -90,6 +94,8 @@ namespace FrameWorkApp
 			double lowpassXAcceleration = 0;
 			double lowpassYAcceleration = 0;
 			double lowpassZAcceleration = 0;
+			double speedAtEvent = 0;
+			double speedAfterEvent = 0;
 
 			avgaccel = 0;
 			currentMaxAvgAccel = 0;
@@ -107,9 +113,12 @@ namespace FrameWorkApp
 
 				if (avgaccel > threshold) {
 					eventInProgress = true;
+					speedAtEvent = rawGPS.convertToKilometersPerHour(rawGPS.getSpeedInMetersPerSecondUnits());
 				} else if ((avgaccel < threshold) && eventInProgress) {
 					eventcount++;
+					speedAfterEvent = rawGPS.convertToKilometersPerHour(rawGPS.getSpeedInMetersPerSecondUnits());
 					this.eventCounter.Text = eventcount.ToString ();
+					this.determineHardStoOrHardStart(speedAtEvent, speedAfterEvent);
 					eventInProgress = false;
 					currentCoord.Latitude = getCurrentLatitude ();
 					currentCoord.Longitude = getCurrentLongitude ();
@@ -132,6 +141,16 @@ namespace FrameWorkApp
 		partial void stopButton (NSObject sender)
 		{
 			distanceTraveledForCurrentTrip = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(rawGPS.listOfTripLocationCoordinates));
+		}
+
+		public void determineHardStoOrHardStart(double initialSpeed, double secondSpeed){
+			if((secondSpeed > initialSpeed) && (initialSpeed < STARTSPEEDTHRESHOLD)){
+				hardStartCount++;
+			}else if (secondSpeed > initialSpeed){
+				hardAccelCount++;
+			}else if(initialSpeed > secondSpeed){
+				hardStopCount++;
+			}
 		}
 
 		public override void ViewWillAppear (bool animated)
