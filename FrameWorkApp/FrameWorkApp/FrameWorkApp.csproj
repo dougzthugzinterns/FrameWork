@@ -164,5 +164,9 @@
     <BundleResource Include="Kangaroo.png" />
     <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy 2.png" />
     <BundleResource Include="Resources\Safe-driving-mate-app-splash-screen copy.png" />
+    <BundleResource Include="Resources\StartFinalHighlighted.png" />
+    <BundleResource Include="Resources\StartFinalDefault.png" />
+    <BundleResource Include="Resources\finalstop1.png" />
+    <BundleResource Include="Resources\finalstop.png" />
   </ItemGroup>
 </Project>
