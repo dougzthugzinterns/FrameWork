@@ -1,19 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Emily’s iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/MainViewController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Helper Classes/SDMFileManager.cs">
     <Files>
-      <File FileName="FrameWorkApp/MainViewController.cs" Line="7" Column="47" />
-      <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="54" Column="57" />
-      <File FileName="FrameWorkApp/AppDelegate.cs" Line="52" Column="4" />
-      <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="30" Column="1" />
-      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="24" Column="40" />
-      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="23" Column="44" />
+      <File FileName="FrameWorkApp/MainViewController.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="53" Column="1" />
+      <File FileName="FrameWorkApp/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="FrameWorkApp" expanded="True">
-            <Node name="Helper Classes" expanded="True" />
+            <Node name="Helper Classes" expanded="True">
+              <Node name="SDMFileManager.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
