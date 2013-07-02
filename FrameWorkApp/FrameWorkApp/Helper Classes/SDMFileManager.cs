@@ -106,7 +106,7 @@ namespace FrameWorkApp
 
 		//Trip Distance File Methods
 
-		//Adds a location to the Current Trip Distance File
+		//Adds a location to the Current ,ooTrip Distance File
 		public  void addLocationToTripDistanceFile(CLLocationCoordinate2D newCoordiante){
 			FileStream currentTripFile_FileStream = File.Open (currentTripDistanceFile,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
@@ -123,7 +123,7 @@ namespace FrameWorkApp
 
 			foreach (String line in File.ReadLines (currentTripDistanceFile)) {
 				String[] splitLine = line.Split (',');
-				CLLocationCoordinate2D newCoordinate = new CLLocationCoordinate2D(Double.Parse(splitLine[0]), Double.Parse(splitLine[1]));
+				CLLocation newCoordinate = new CLLocation(Double.Parse(splitLine[0]), Double.Parse(splitLine[1]));
 				temporaryArrayListForData.Add (newCoordinate);
 			}
 			return (CLLocation[])temporaryArrayListForData.ToArray(typeof(CLLocation));

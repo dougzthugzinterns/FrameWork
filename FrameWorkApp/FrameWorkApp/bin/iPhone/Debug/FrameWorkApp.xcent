@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>P77UVGKRE3.com.conf.GoogleMapsAdvSample</string>
+	<string>P77UVGKRE3.com.conf.FrameWorkAppp</string>
 	<key>get-task-allow</key>
-	<true/>
+	<false/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>P77UVGKRE3.com.conf.GoogleMapsAdvSample</string>
+		<string>P77UVGKRE3.com.conf.FrameWorkAppp</string>
 	</array>
 </dict>
 </plist>
