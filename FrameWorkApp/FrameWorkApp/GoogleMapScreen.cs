@@ -108,6 +108,8 @@ namespace FrameWorkApp
 			mapView = Google.Maps.MapView.FromCamera (RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
 
+			if (markersToAdd.Length == 0)
+
 			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
 
 			View = mapView;
