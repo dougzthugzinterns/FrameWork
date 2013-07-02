@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 IP: 172.25.54.145
+=======
+IP: 172.25.53.19
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
 USB Debugging: 1
 Port: 10000

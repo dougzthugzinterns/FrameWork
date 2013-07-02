@@ -42,7 +42,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
+<<<<<<< HEAD
     <CodesignKey>iPhone Developer</CodesignKey>
+=======
+    <CodesignKey>iPhone Distribution: David Gayda (P77UVGKRE3)</CodesignKey>
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
     <MtouchI18n />
     <MtouchArch>ARMv7</MtouchArch>
     <CodesignProvision>3EDE0B86-3E78-4099-8215-C60E30DF8362</CodesignProvision>

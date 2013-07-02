@@ -41,6 +41,30 @@ namespace FrameWorkApp
 
 		}
 
+<<<<<<< HEAD
+=======
+		//Overall Helper Methods
+
+		//Returns True of Trip is still in progress, false if not.
+		public Boolean currentTripInProgress(){
+			if (File.ReadAllText (currentTripEventFile) != "" || File.ReadAllText (currentTripDistanceFile) != "") {
+				return true;
+			}
+			return false;
+		}
+
+		public DateTime getDateOfLastPointEnteredInCurrentTrip(){
+			DateTime eventFileDateTime = File.GetLastWriteTime (currentTripEventFile);
+			DateTime distanceFileDateTime = File.GetLastWriteTime (currentTripDistanceFile);
+
+			if (eventFileDateTime.CompareTo (distanceFileDateTime) > 0) {
+				return eventFileDateTime;
+			} else {
+				return distanceFileDateTime;
+			}
+		}
+
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
 		//Trip Log Methods
 
 		//Adds Trip to Trip Log

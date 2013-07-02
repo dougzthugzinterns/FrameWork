@@ -3,12 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
+<<<<<<< HEAD
 	<string>P77UVGKRE3.com.conf.FrameGame</string>
+=======
+	<string>P77UVGKRE3.com.conf.FrameWorkAppp</string>
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
 	<key>get-task-allow</key>
-	<true/>
+	<false/>
 	<key>keychain-access-groups</key>
 	<array>
+<<<<<<< HEAD
 		<string>P77UVGKRE3.com.conf.FrameGame</string>
+=======
+		<string>P77UVGKRE3.com.conf.FrameWorkAppp</string>
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
 	</array>
 </dict>
 </plist>

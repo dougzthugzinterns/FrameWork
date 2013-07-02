@@ -5,14 +5,20 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>English</string>
 		<key>CFBundleIdentifier</key>
+<<<<<<< HEAD
 		<string>com.apple.xcode.dsym.com.conf.FrameGame</string>
+=======
+		<string>com.apple.xcode.dsym.FrameWorkApp.app</string>
+>>>>>>> AddingSaveFeaturesToTripSummaryPage
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundlePackageType</key>
 		<string>dSYM</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
-		<key>CFBundleVersion</key>
+		<key>CFBundleShortVersionString</key>
 		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>1</string>
 	</dict>
 </plist>
