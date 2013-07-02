@@ -40,7 +40,27 @@ namespace FrameWorkApp
 			//Console.WriteLine ("Current Trip Distance File Path: " + currentTripDistanceFile);
 
 		}
+//Overall Helper Methods
 
+		//Returns True of Trip is still in progress, false if not.
+		public Boolean currentTripInProgress(){
+			if (File.ReadAllText (currentTripEventFile) != "" || File.ReadAllText (currentTripDistanceFile) != "") {
+				return true;
+			}
+			return false;
+		}
+
+		//Get Last Date of Any point being entered into a file
+		public DateTime getDateOfLastPointEnteredInCurrentTrip(){
+			DateTime eventFileDateTime = File.GetLastWriteTime (currentTripEventFile);
+			DateTime distanceFileDateTime = File.GetLastWriteTime (currentTripDistanceFile);
+
+			if (eventFileDateTime.CompareTo (distanceFileDateTime) > 0) {
+				return eventFileDateTime;
+			} else {
+				return distanceFileDateTime;
+			}
+		}
 		//Trip Log Methods
 
 		//Adds Trip to Trip Log
