@@ -44,7 +44,8 @@ namespace FrameWorkApp
 		//Trip Log Methods
 
 		//Adds Trip to Trip Log
-		public  void addDataToTripLogFile(Trip newTrip){
+		public  void addDataToTripLogFile(Trip newTrip)
+		{
 			FileStream currentTripFile_FileStream = File.Open (tripLogFile,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
 			newTrip.DateTime.ToString ("MM/dd/yyyy h:mmtt");
@@ -56,7 +57,8 @@ namespace FrameWorkApp
 		}
 
 		//Reads Trip Log File back in returning a array of Trip objects.
-		public  Trip[] readDataFromTripLogFile(){
+		public  Trip[] readDataFromTripLogFile()
+		{
 			ArrayList temporaryArrayListForData = new ArrayList();
 
 			foreach (String line in File.ReadLines (tripLogFile)) {
@@ -64,20 +66,20 @@ namespace FrameWorkApp
 				Trip newTrip = new Trip (DateTime.ParseExact(splitLine[0], "MM/dd/yyyy h:mmtt",null), int.Parse(splitLine[1]));
 				temporaryArrayListForData.Add (newTrip);
 			}
-
 			return (Trip[])temporaryArrayListForData.ToArray(typeof(Trip));
-
 		}
 
 		//Clear Trip Log File
-		public void clearTripLogFile(){
+		public void clearTripLogFile()
+		{
 			File.WriteAllText (tripLogFile, "");
 		}
 
 		//Trip Event File Methods
 
 		//Add Event Cooridnate to Current Trip Event File
-		public  void addEventToTripEventFile(CLLocationCoordinate2D newCoordiante){
+		public  void addEventToTripEventFile(CLLocationCoordinate2D newCoordiante)
+		{
 			FileStream currentTripFile_FileStream = File.Open (currentTripEventFile,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
 
@@ -88,7 +90,8 @@ namespace FrameWorkApp
 		}
 
 		//Reads Current Trip Event File back in and returns a Array of CLLocationCordinates2D objects.
-		public  CLLocationCoordinate2D[] readDataFromTripEventFile(){
+		public  CLLocationCoordinate2D[] readDataFromTripEventFile()
+		{
 			ArrayList temporaryArrayListForData = new ArrayList();
 
 			foreach (String line in File.ReadLines (currentTripEventFile)) {
@@ -100,14 +103,16 @@ namespace FrameWorkApp
 		}
 
 		//Clears Current Trip Event File
-		public void clearCurrentTripEventFile(){
+		public void clearCurrentTripEventFile()
+		{
 			File.WriteAllText (currentTripEventFile, "");
 		}
 
 		//Trip Distance File Methods
 
 		//Adds a location to the Current ,ooTrip Distance File
-		public  void addLocationToTripDistanceFile(CLLocationCoordinate2D newCoordiante){
+		public  void addLocationToTripDistanceFile(CLLocationCoordinate2D newCoordiante)
+		{
 			FileStream currentTripFile_FileStream = File.Open (currentTripDistanceFile,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
 
@@ -118,7 +123,8 @@ namespace FrameWorkApp
 		}
 
 		//Reads Current Trip Distance File back in returns a Array of CLLocation objects.
-		public  CLLocation[] readDataFromTripDistanceFile(){
+		public  CLLocation[] readDataFromTripDistanceFile()
+		{
 			ArrayList temporaryArrayListForData = new ArrayList();
 
 			foreach (String line in File.ReadLines (currentTripDistanceFile)) {
@@ -130,12 +136,10 @@ namespace FrameWorkApp
 		}
 
 		//Clears Current Trip Distance File.
-		public void clearCurrentTripDistanceFile(){
+		public void clearCurrentTripDistanceFile()
+		{
 			File.WriteAllText (currentTripDistanceFile, "");
 		}
-
-
-
 	}
 }
 

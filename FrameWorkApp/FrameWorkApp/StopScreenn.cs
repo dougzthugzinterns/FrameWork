@@ -46,6 +46,7 @@ namespace FrameWorkApp
 			return latitude;
 
 		}
+
 		//Gets the Longitude of the user.
 		public double getCurrentLongitude ()
 		{
@@ -58,6 +59,7 @@ namespace FrameWorkApp
 			myLocMan.StartUpdatingLocation ();
 			return longitude;
 		}
+
 		//Resets the values
 		partial void resetMaxValues (NSObject sender)
 		{

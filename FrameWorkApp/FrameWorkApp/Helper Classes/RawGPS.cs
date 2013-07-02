@@ -10,7 +10,6 @@ namespace FrameWorkApp
 	public partial class RawGPS
 	{
 		SDMFileManager fileManager = new SDMFileManager();
-
 		public List<CLLocation> listOfTripLocationCoordinates { get; set; }
 		CLLocationManager commonLocationManager;
 

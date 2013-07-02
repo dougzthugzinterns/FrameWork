@@ -5,18 +5,25 @@
       <File FileName="FrameWorkApp/StopScreenn.cs" Line="100" Column="7" />
       <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="15" Column="6" />
-      <File FileName="FrameWorkApp/Main.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/StopScreenn.designer.cs" Line="1" Column="1" />
-      <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="18" Column="12" />
       <File FileName="FrameWorkApp/TripSummaryScreen.designer.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/AchievementsScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/FlipsideViewController.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/MainViewController.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/MenuScreenTiles.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/SettingsScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/StatsScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/TripLogScreen.cs" Line="28" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FrameWorkApp" expanded="True">
             <Node name="Helper Classes" expanded="True" />
-            <Node name="StopScreenn.cs" selected="True" />
-            <Node name="TripSummaryScreen.cs" expanded="True" />
+            <Node name="StopScreenn.cs" expanded="True" />
+            <Node name="TripSummaryScreen.cs" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
