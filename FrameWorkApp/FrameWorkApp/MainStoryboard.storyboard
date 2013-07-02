@@ -678,19 +678,10 @@
         <image name="trophy2.png" width="1271" height="925"/>
     </resources>
     <classes>
-        <class className="AchievementsScreen" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AchievementsScreen.h"/>
-        </class>
         <class className="FlipsideViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="GoogleMapScreen" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoogleMapScreen.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapViewOutlet" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
@@ -700,51 +691,13 @@
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
         </class>
-        <class className="MenuScreenTiles" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuScreenTiles.h"/>
-            <relationships>
-                <relationship kind="action" name="menuToHome:"/>
-            </relationships>
-        </class>
         <class className="SettingsScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreen.h"/>
-        </class>
-        <class className="StatsScreen" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsScreen.h"/>
-        </class>
-        <class className="StopScreenn" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StopScreenn.h"/>
-            <relationships>
-                <relationship kind="action" name="resetMaxValues:"/>
-                <relationship kind="action" name="stopButton:"/>
-                <relationship kind="outlet" name="SpeedAfterEventLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="SpeedAtEventLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="avgAcc" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eventCounter" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latReading" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="longReading" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxAvgAcc" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TripLogScreen" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TripLogScreen.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tripLogTableViewOutlet" candidateClass="UITableView"/>
-            </relationships>
         </class>
         <class className="TripSummaryScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TripSummaryScreen.h"/>
             <relationships>
-                <relationship kind="action" name="toHome:"/>
-                <relationship kind="outlet" name="TripSummaryGoogleMapButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fastAccelsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hardBrakesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numHardStartLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pointsEarnedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sharpTurnLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalBreakAcessLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tripSummaryEventsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>
