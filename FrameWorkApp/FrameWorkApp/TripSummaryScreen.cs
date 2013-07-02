@@ -28,7 +28,7 @@ namespace FrameWorkApp
 			hardBrakesLabel.Text = StopScreenn.numberHardStops.ToString ();
 			numHardStartLabel.Text = StopScreenn.numberHardStarts.ToString ();
 			fastAccelsLabel.Text = StopScreenn.numberHardStarts.ToString ();
-			double total = (StopScreenn.numberHardStops) + (StopScreenn.numberHardStarts);
+			double total = (StopScreenn.numberHardStops) + (StopScreenn.numberHardStarts) +(StopScreenn.numberHardAccel);
 			totalBreakAcessLabel.Text = total.ToString ();
 		}
 

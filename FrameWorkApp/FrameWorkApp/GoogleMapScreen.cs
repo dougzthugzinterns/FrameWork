@@ -12,6 +12,7 @@ namespace FrameWorkApp
 	{
 		Google.Maps.MapView mapView;
 		private CLLocationCoordinate2D[] markersToAdd;
+		Boolean firstLocationUpdate;
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
@@ -104,23 +105,38 @@ namespace FrameWorkApp
 		{
 			base.LoadView ();
 
-			CameraPosition camera = CameraPosition.FromCamera (37.797865, -122.402526,0);
+			CLLocationManager manager = new CLLocationManager ();
+			double lat = manager.Location.Coordinate.Latitude;
+			double longi = manager.Location.Coordinate.Longitude;
+			CameraPosition camera = CameraPosition.FromCamera (lat, longi, 20);
 			mapView = Google.Maps.MapView.FromCamera (RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
 
-			if (markersToAdd.Length == 0)
-
-			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
+			if (markersToAdd.Length == 0) {
+				mapView.AddObserver (this, new NSString ("myLocation"), NSKeyValueObservingOptions.New, IntPtr.Zero);
+			}else{
+				addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
+			}
 
 			View = mapView;
 
 		}
+
+		public override void ObserveValue(NSString keyPath, NSObject ofObject, NSDictionary change, IntPtr context){
+			if (!firstLocationUpdate) {
+				firstLocationUpdate = true;
+				var location = change.ObjectForKey (NSValue.ChangeNewKey) as CLLocation;
+				mapView.Camera = CameraPosition.FromCamera (location.Coordinate, 14);
+			}
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 			cameraAutoZoomAndReposition (this.markersToAdd);
 		}
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -136,4 +152,3 @@ namespace FrameWorkApp
 		}
 	}
 }
-
