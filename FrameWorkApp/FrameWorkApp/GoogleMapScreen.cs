@@ -20,7 +20,7 @@ namespace FrameWorkApp
 
 			//From File
 
-			markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
+			markersToAdd = TripSummaryScreen.events;
 		}
 
 
