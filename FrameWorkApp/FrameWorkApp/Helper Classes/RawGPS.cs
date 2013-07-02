@@ -42,11 +42,17 @@ namespace FrameWorkApp
 
 		public double getSpeedInMetersPerSecondUnits ()
 		{
+			double speed = 0;
 			commonLocationManager.DesiredAccuracy = CLLocation.AccuracyBest;
 			if (CLLocationManager.LocationServicesEnabled) {
 				commonLocationManager.StartUpdatingLocation ();
 			}
-			return commonLocationManager.Location.Speed;
+			speed = commonLocationManager.Location.Speed;
+			if(speed < 0){
+				speed = 0;
+			}
+			return speed;
+			
 		}
 
 		public double convertToKilometersPerHour (double metersPerSecond)

@@ -1,0 +1,36 @@
+// WARNING
+// This file has been generated automatically by Xamarin Studio to
+// mirror C# types. Changes in this file made by drag-connecting
+// from the UI designer will be synchronized back to C#, but
+// more complex manual changes may not transfer correctly.
+
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+
+@interface StopScreenn : UIViewController {
+	UILabel *_avgAcc;
+	UILabel *_eventCounter;
+	UILabel *_latReading;
+	UILabel *_longReading;
+	UILabel *_maxAvgAcc;
+}
+
+@property (nonatomic, retain) IBOutlet UILabel *avgAcc;
+
+@property (nonatomic, retain) IBOutlet UILabel *eventCounter;
+
+@property (nonatomic, retain) IBOutlet UILabel *latReading;
+
+@property (nonatomic, retain) IBOutlet UILabel *longReading;
+
+@property (nonatomic, retain) IBOutlet UILabel *maxAvgAcc;
+@property (retain, nonatomic) IBOutlet UILabel *SpeedAtEventLabel;
+@property (retain, nonatomic) IBOutlet UILabel *SpeedAfterEventLabel;
+
+- (IBAction)resetMaxValues:(id)sender;
+
+- (IBAction)stopButton:(id)sender;
+
+@end

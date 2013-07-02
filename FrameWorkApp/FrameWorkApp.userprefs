@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Victoria’s iPhone 5!" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Helper Classes/SDMFileManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Victoria’s iPhone 5!" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/TripSummaryScreen.cs">
     <Files>
-      <File FileName="FrameWorkApp/StopScreenn.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/StopScreenn.cs" Line="143" Column="38" />
       <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="75" Column="1" />
       <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/Main.cs" Line="1" Column="1" />
@@ -12,14 +12,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="FrameWorkApp" expanded="True">
-            <Node name="Helper Classes" expanded="True">
-              <Node name="SDMFileManager.cs" selected="True" />
-            </Node>
-            <Node name="MainViewController.cs" expanded="True" />
-            <Node name="StopScreenn.cs" expanded="True" />
-            <Node name="TripSummaryScreen.cs" expanded="True" />
-          </Node>
+          <Node name="FrameWorkApp" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

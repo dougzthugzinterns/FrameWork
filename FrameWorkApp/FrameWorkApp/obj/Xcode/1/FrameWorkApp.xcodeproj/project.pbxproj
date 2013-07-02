@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D17032B0000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A80FC90000000000000000 /* UIKit.framework */; };
+		3EACA65E0000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DB2FC00000000000000000 /* MapKit.framework */; };
+		13E00EF60000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17711B940000000000000000 /* Foundation.framework */; };
+		74AF13F00000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBFDDD00000000000000000 /* CoreGraphics.framework */; };
+		2ECC527E0000000000000000 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325D5F1C0000000000000000 /* MainStoryboard.storyboard */; };
+		17840EED0000000000000000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B151B8B0000000000000000 /* Default-568h@2x.png */; };
+		304884230000000000000000 /* Safe-driving-mate-app-splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D990C10000000000000000 /* Safe-driving-mate-app-splash-screen.png */; };
+		13C01F330000000000000000 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17512BD10000000000000000 /* Default@2x.png */; };
+		72B017C00000000000000000 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC0E1A00000000000000000 /* Default.png */; };
+		252F98110000000000000000 /* trophy2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C0A4AF0000000000000000 /* trophy2.png */; };
+		8A7332100000000000000000 /* StatsPicture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C383FBF00000000000000000 /* StatsPicture.jpg */; };
+		DE7548000000000000000000 /* Kangaroo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1178611E0000000000000000 /* Kangaroo.png */; };
+		231ABD180000000000000000 /* Safe-driving-mate-app-splash-screen copy 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 26ABC9B60000000000000000 /* Safe-driving-mate-app-splash-screen copy 2.png */; };
+		366C2DD30000000000000000 /* Safe-driving-mate-app-splash-screen copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 39FD3A710000000000000000 /* Safe-driving-mate-app-splash-screen copy.png */; };
+		27F5183F0000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B8624DD0000000000000000 /* AppDelegate.h */; };
+		1D0F0F490000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A01BE70000000000000000 /* AppDelegate.m */; };
+		B06ED1700000000000000000 /* MainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = E97F9B500000000000000000 /* MainViewController.h */; };
+		21E96A700000000000000000 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A770E0000000000000000 /* MainViewController.m */; };
+		338BC66A0000000000000000 /* FlipsideViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 371CD3080000000000000000 /* FlipsideViewController.h */; };
+		3E0C09280000000000000000 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D15C600000000000000000 /* FlipsideViewController.m */; };
+		1A618AFC0000000000000000 /* MenuScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2979A0000000000000000 /* MenuScreen.h */; };
+		14EE86810000000000000000 /* MenuScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F931F0000000000000000 /* MenuScreen.m */; };
+		2DB2FBB70000000000000000 /* SettingsScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 314408550000000000000000 /* SettingsScreen.h */; };
+		34A231D70000000000000000 /* SettingsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 38333E750000000000000000 /* SettingsScreen.m */; };
+		3F2274950000000000000000 /* TripSummaryScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B3813300000000000000000 /* TripSummaryScreen.h */; };
+		1604F1EE0000000000000000 /* TripSummaryScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1995FE8C0000000000000000 /* TripSummaryScreen.m */; };
+		2EC967240000000000000000 /* MenuScreenTiles.h in Sources */ = {isa = PBXBuildFile; fileRef = 325A73C20000000000000000 /* MenuScreenTiles.h */; };
+		78DDC5A00000000000000000 /* MenuScreenTiles.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE8F800000000000000000 /* MenuScreenTiles.m */; };
+		23E35E2E0000000000000000 /* StopScreenn.h in Sources */ = {isa = PBXBuildFile; fileRef = 27746ACC0000000000000000 /* StopScreenn.h */; };
+		1E7059B30000000000000000 /* StopScreenn.m in Sources */ = {isa = PBXBuildFile; fileRef = 220166510000000000000000 /* StopScreenn.m */; };
+		33A3C24B0000000000000000 /* AchievementsScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 3734CEE90000000000000000 /* AchievementsScreen.h */; };
+		28BDB9550000000000000000 /* AchievementsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC5F30000000000000000 /* AchievementsScreen.m */; };
+		330B18F70000000000000000 /* TripLogScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 369C25950000000000000000 /* TripLogScreen.h */; };
+		F2DB7AF00000000000000000 /* TripLogScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BEC44D0000000000000000 /* TripLogScreen.m */; };
+		2B8339830000000000000000 /* StatsScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 2F1446210000000000000000 /* StatsScreen.h */; };
+		261035080000000000000000 /* StatsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A141A60000000000000000 /* StatsScreen.m */; };
+		3ED4AA3E0000000000000000 /* GoogleMapScreen.h in Sources */ = {isa = PBXBuildFile; fileRef = 265B6DC00000000000000000 /* GoogleMapScreen.h */; };
+		17991F740000000000000000 /* GoogleMapScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A2C120000000000000000 /* GoogleMapScreen.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		37D857790000000000000000 /* FrameWorkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "FrameWorkApp.app"; path = "FrameWorkApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20A80FC90000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		23DB2FC00000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		17711B940000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		ADBFDDD00000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		325D5F1C0000000000000000 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "MainStoryboard.storyboard"; path = "MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		1B151B8B0000000000000000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		33D990C10000000000000000 /* Safe-driving-mate-app-splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safe-driving-mate-app-splash-screen.png"; path = "Safe-driving-mate-app-splash-screen.png"; sourceTree = "<group>"; };
+		17512BD10000000000000000 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Default@2x.png"; sourceTree = "<group>"; };
+		ABC0E1A00000000000000000 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default.png"; path = "Default.png"; sourceTree = "<group>"; };
+		28C0A4AF0000000000000000 /* trophy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "trophy2.png"; path = "trophy2.png"; sourceTree = "<group>"; };
+		C383FBF00000000000000000 /* StatsPicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "StatsPicture.jpg"; path = "StatsPicture.jpg"; sourceTree = "<group>"; };
+		1178611E0000000000000000 /* Kangaroo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Kangaroo.png"; path = "Kangaroo.png"; sourceTree = "<group>"; };
+		26ABC9B60000000000000000 /* Safe-driving-mate-app-splash-screen copy 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safe-driving-mate-app-splash-screen copy 2.png"; path = "Safe-driving-mate-app-splash-screen copy 2.png"; sourceTree = "<group>"; };
+		39FD3A710000000000000000 /* Safe-driving-mate-app-splash-screen copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safe-driving-mate-app-splash-screen copy.png"; path = "Safe-driving-mate-app-splash-screen copy.png"; sourceTree = "<group>"; };
+		2B8624DD0000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		20A01BE70000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		E97F9B500000000000000000 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MainViewController.h"; path = "MainViewController.h"; sourceTree = "<group>"; };
+		257A770E0000000000000000 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MainViewController.m"; path = "MainViewController.m"; sourceTree = "<group>"; };
+		371CD3080000000000000000 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FlipsideViewController.h"; path = "FlipsideViewController.h"; sourceTree = "<group>"; };
+		19D15C600000000000000000 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FlipsideViewController.m"; path = "FlipsideViewController.m"; sourceTree = "<group>"; };
+		1DF2979A0000000000000000 /* MenuScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MenuScreen.h"; path = "MenuScreen.h"; sourceTree = "<group>"; };
+		187F931F0000000000000000 /* MenuScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MenuScreen.m"; path = "MenuScreen.m"; sourceTree = "<group>"; };
+		314408550000000000000000 /* SettingsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SettingsScreen.h"; path = "SettingsScreen.h"; sourceTree = "<group>"; };
+		38333E750000000000000000 /* SettingsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SettingsScreen.m"; path = "SettingsScreen.m"; sourceTree = "<group>"; };
+		2B3813300000000000000000 /* TripSummaryScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TripSummaryScreen.h"; path = "TripSummaryScreen.h"; sourceTree = "<group>"; };
+		1995FE8C0000000000000000 /* TripSummaryScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "TripSummaryScreen.m"; path = "TripSummaryScreen.m"; sourceTree = "<group>"; };
+		325A73C20000000000000000 /* MenuScreenTiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MenuScreenTiles.h"; path = "MenuScreenTiles.h"; sourceTree = "<group>"; };
+		B1EE8F800000000000000000 /* MenuScreenTiles.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MenuScreenTiles.m"; path = "MenuScreenTiles.m"; sourceTree = "<group>"; };
+		27746ACC0000000000000000 /* StopScreenn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "StopScreenn.h"; path = "StopScreenn.h"; sourceTree = "<group>"; };
+		220166510000000000000000 /* StopScreenn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "StopScreenn.m"; path = "StopScreenn.m"; sourceTree = "<group>"; };
+		3734CEE90000000000000000 /* AchievementsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AchievementsScreen.h"; path = "AchievementsScreen.h"; sourceTree = "<group>"; };
+		2C4EC5F30000000000000000 /* AchievementsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AchievementsScreen.m"; path = "AchievementsScreen.m"; sourceTree = "<group>"; };
+		369C25950000000000000000 /* TripLogScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TripLogScreen.h"; path = "TripLogScreen.h"; sourceTree = "<group>"; };
+		12BEC44D0000000000000000 /* TripLogScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "TripLogScreen.m"; path = "TripLogScreen.m"; sourceTree = "<group>"; };
+		2F1446210000000000000000 /* StatsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "StatsScreen.h"; path = "StatsScreen.h"; sourceTree = "<group>"; };
+		29A141A60000000000000000 /* StatsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "StatsScreen.m"; path = "StatsScreen.m"; sourceTree = "<group>"; };
+		265B6DC00000000000000000 /* GoogleMapScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GoogleMapScreen.h"; path = "GoogleMapScreen.h"; sourceTree = "<group>"; };
+		1B2A2C120000000000000000 /* GoogleMapScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GoogleMapScreen.m"; path = "GoogleMapScreen.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32CB19360000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D17032B0000000000000000 /* UIKit.framework in Frameworks */,
+				3EACA65E0000000000000000 /* MapKit.framework in Frameworks */,
+				13E00EF60000000000000000 /* Foundation.framework in Frameworks */,
+				74AF13F00000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12E48AC40000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				3D7E3F100000000000000000 /* FrameWorkApp */,
+				2128BD3C0000000000000000 /* Frameworks */,
+				83164EA00000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83164EA00000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37D857790000000000000000 /* FrameWorkApp.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		2128BD3C0000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20A80FC90000000000000000 /* UIKit.framework */,
+				23DB2FC00000000000000000 /* MapKit.framework */,
+				17711B940000000000000000 /* Foundation.framework */,
+				ADBFDDD00000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		3D7E3F100000000000000000 /* FrameWorkApp */ = {
+			isa = PBXGroup;
+			children = (
+				3734CEE90000000000000000 /* AchievementsScreen.h */,
+				2B8624DD0000000000000000 /* AppDelegate.h */,
+				ABC0E1A00000000000000000 /* Default.png */,
+				17512BD10000000000000000 /* Default@2x.png */,
+				1B151B8B0000000000000000 /* Default-568h@2x.png */,
+				371CD3080000000000000000 /* FlipsideViewController.h */,
+				265B6DC00000000000000000 /* GoogleMapScreen.h */,
+				1178611E0000000000000000 /* Kangaroo.png */,
+				325D5F1C0000000000000000 /* MainStoryboard.storyboard */,
+				E97F9B500000000000000000 /* MainViewController.h */,
+				1DF2979A0000000000000000 /* MenuScreen.h */,
+				325A73C20000000000000000 /* MenuScreenTiles.h */,
+				26ABC9B60000000000000000 /* Safe-driving-mate-app-splash-screen copy 2.png */,
+				39FD3A710000000000000000 /* Safe-driving-mate-app-splash-screen copy.png */,
+				33D990C10000000000000000 /* Safe-driving-mate-app-splash-screen.png */,
+				314408550000000000000000 /* SettingsScreen.h */,
+				C383FBF00000000000000000 /* StatsPicture.jpg */,
+				2F1446210000000000000000 /* StatsScreen.h */,
+				27746ACC0000000000000000 /* StopScreenn.h */,
+				369C25950000000000000000 /* TripLogScreen.h */,
+				2B3813300000000000000000 /* TripSummaryScreen.h */,
+				28C0A4AF0000000000000000 /* trophy2.png */,
+				1EF107260000000000000000 /* Supporting Files */,
+			);
+			name = "FrameWorkApp";
+			sourceTree = "<group>";
+		};
+		1EF107260000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C4EC5F30000000000000000 /* AchievementsScreen.m */,
+				20A01BE70000000000000000 /* AppDelegate.m */,
+				19D15C600000000000000000 /* FlipsideViewController.m */,
+				1B2A2C120000000000000000 /* GoogleMapScreen.m */,
+				257A770E0000000000000000 /* MainViewController.m */,
+				187F931F0000000000000000 /* MenuScreen.m */,
+				B1EE8F800000000000000000 /* MenuScreenTiles.m */,
+				38333E750000000000000000 /* SettingsScreen.m */,
+				29A141A60000000000000000 /* StatsScreen.m */,
+				220166510000000000000000 /* StopScreenn.m */,
+				12BEC44D0000000000000000 /* TripLogScreen.m */,
+				1995FE8C0000000000000000 /* TripSummaryScreen.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C8C884B0000000000000000 /* FrameWorkApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D25319F0000000000000000 /* Build configuration list for PBXNativeTarget "FrameWorkApp" */;
+			buildPhases = (
+				1D64CD820000000000000000 /* Sources */,
+				32CB19360000000000000000 /* Frameworks */,
+				64F6D0D00000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FrameWorkApp";
+			productName = "FrameWorkApp";
+			productReference = 37D857790000000000000000 /* FrameWorkApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21D962710000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1EE0FF270000000000000000 /* Build configuration list for PBXProject "FrameWorkApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 12E48AC40000000000000000;
+			productRefGroup = 83164EA00000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C8C884B0000000000000000 /* FrameWorkApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64F6D0D00000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ECC527E0000000000000000 /* MainStoryboard.storyboard in Resources */,
+				17840EED0000000000000000 /* Default-568h@2x.png in Resources */,
+				304884230000000000000000 /* Safe-driving-mate-app-splash-screen.png in Resources */,
+				13C01F330000000000000000 /* Default@2x.png in Resources */,
+				72B017C00000000000000000 /* Default.png in Resources */,
+				252F98110000000000000000 /* trophy2.png in Resources */,
+				8A7332100000000000000000 /* StatsPicture.jpg in Resources */,
+				DE7548000000000000000000 /* Kangaroo.png in Resources */,
+				231ABD180000000000000000 /* Safe-driving-mate-app-splash-screen copy 2.png in Resources */,
+				366C2DD30000000000000000 /* Safe-driving-mate-app-splash-screen copy.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D64CD820000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F5183F0000000000000000 /* AppDelegate.h in Sources */,
+				1D0F0F490000000000000000 /* AppDelegate.m in Sources */,
+				B06ED1700000000000000000 /* MainViewController.h in Sources */,
+				21E96A700000000000000000 /* MainViewController.m in Sources */,
+				338BC66A0000000000000000 /* FlipsideViewController.h in Sources */,
+				3E0C09280000000000000000 /* FlipsideViewController.m in Sources */,
+				1A618AFC0000000000000000 /* MenuScreen.h in Sources */,
+				14EE86810000000000000000 /* MenuScreen.m in Sources */,
+				2DB2FBB70000000000000000 /* SettingsScreen.h in Sources */,
+				34A231D70000000000000000 /* SettingsScreen.m in Sources */,
+				3F2274950000000000000000 /* TripSummaryScreen.h in Sources */,
+				1604F1EE0000000000000000 /* TripSummaryScreen.m in Sources */,
+				2EC967240000000000000000 /* MenuScreenTiles.h in Sources */,
+				78DDC5A00000000000000000 /* MenuScreenTiles.m in Sources */,
+				23E35E2E0000000000000000 /* StopScreenn.h in Sources */,
+				1E7059B30000000000000000 /* StopScreenn.m in Sources */,
+				33A3C24B0000000000000000 /* AchievementsScreen.h in Sources */,
+				28BDB9550000000000000000 /* AchievementsScreen.m in Sources */,
+				330B18F70000000000000000 /* TripLogScreen.h in Sources */,
+				F2DB7AF00000000000000000 /* TripLogScreen.m in Sources */,
+				2B8339830000000000000000 /* StatsScreen.h in Sources */,
+				261035080000000000000000 /* StatsScreen.m in Sources */,
+				3ED4AA3E0000000000000000 /* GoogleMapScreen.h in Sources */,
+				17991F740000000000000000 /* GoogleMapScreen.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		205D30CC0000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		142DD94D0000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "FrameWorkApp";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EE0FF270000000000000000 /* Build configuration list for PBXProject "FrameWorkApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				205D30CC0000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		2D25319F0000000000000000 /* Build configuration list for PBXNativeTarget "FrameWorkApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142DD94D0000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21D962710000000000000000 /* Project object */;
+}
