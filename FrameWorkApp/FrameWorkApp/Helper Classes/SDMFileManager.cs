@@ -51,6 +51,7 @@ namespace FrameWorkApp
 			return false;
 		}
 
+		//Get Last Date of Any point being entered into a file
 		public DateTime getDateOfLastPointEnteredInCurrentTrip(){
 			DateTime eventFileDateTime = File.GetLastWriteTime (currentTripEventFile);
 			DateTime distanceFileDateTime = File.GetLastWriteTime (currentTripDistanceFile);
