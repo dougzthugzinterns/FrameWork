@@ -19,8 +19,7 @@ namespace FrameWorkApp
 			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 
 			//From File
-
-			markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
+			markersToAdd = TripSummaryScreen.events;
 		}
 
 

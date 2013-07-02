@@ -13,24 +13,32 @@ namespace FrameWorkApp
 	{
 		SDMFileManager fileManager = new SDMFileManager();
 		RawGPS rawGPS = new RawGPS();
+		public static CLLocationCoordinate2D[] events;
+		
 		public TripSummaryScreen (IntPtr handle) : base (handle)
 		{
 			//Add Recent trip to History
 			fileManager.addDataToTripLogFile(new Trip(DateTime.Now, StopScreenn.fileManager.readDataFromTripEventFile().Length));
+			events=fileManager.readDataFromTripEventFile ();
+			fileManager.clearCurrentTripEventFile();
+			fileManager.clearCurrentTripDistanceFile();
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			//Updates tripSummaryEventLabel displaying events from this trip
-			tripSummaryEventsLabel.Text = StopScreenn.fileManager.readDataFromTripEventFile ().Length.ToString();
 			distanceLabel.Text = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(new List<CLLocation>(fileManager.readDataFromTripDistanceFile()))).ToString();
 			hardBrakesLabel.Text = StopScreenn.numberHardStops.ToString ();
 			numHardStartLabel.Text = StopScreenn.numberHardStarts.ToString ();
 			fastAccelsLabel.Text = StopScreenn.numberHardStarts.ToString ();
 			double total = (StopScreenn.numberHardStops) + (StopScreenn.numberHardStarts);
 			totalBreakAcessLabel.Text = total.ToString ();
-		}
+			
+			//tripSummaryEventsLabel.Text = StopScreenn.fileManager.readDataFromTripEventFile ().Length.ToString();
+			tripSummaryEventsLabel.Text = events.Length.ToString();
+			distanceLabel.Text = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(new List<CLLocation>(fileManager.readDataFromTripDistanceFile()))).ToString();
+			}
 
 		partial void toHome (NSObject sender)
 		{
