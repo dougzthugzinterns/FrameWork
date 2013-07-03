@@ -44,8 +44,10 @@ namespace FrameWorkApp
 
 		//Returns True of Trip is still in progress, false if not.
 		public Boolean currentTripInProgress(){
-			if (File.ReadAllText (currentTripEventFile) != "" || File.ReadAllText (currentTripDistanceFile) != "") {
-				return true;
+			if(File.Exists (currentTripEventFile)&&File.Exists (currentTripDistanceFile)){
+				if (File.ReadAllText (currentTripEventFile) != "" || File.ReadAllText (currentTripDistanceFile) != "") {
+					return true;
+				}
 			}
 			return false;
 		}
