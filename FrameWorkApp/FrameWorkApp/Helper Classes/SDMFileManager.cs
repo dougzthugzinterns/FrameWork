@@ -35,9 +35,9 @@ namespace FrameWorkApp
 				File.Create (currentTripEventFile);
 			}
 
-			//Console.WriteLine ("Trip Log Path:"+ tripLogFile);
-			//Console.WriteLine ("Current Trip Event File Path: " + currentTripEventFile);
-			//Console.WriteLine ("Current Trip Distance File Path: " + currentTripDistanceFile);
+			Console.WriteLine ("Trip Log Path:"+ tripLogFile);
+			Console.WriteLine ("Current Trip Event File Path: " + currentTripEventFile);
+			Console.WriteLine ("Current Trip Distance File Path: " + currentTripDistanceFile);
 
 		}
 		//Overall Helper Methods

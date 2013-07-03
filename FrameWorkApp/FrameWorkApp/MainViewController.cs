@@ -1,7 +1,7 @@
 using MonoTouch.UIKit;
 using System;
 using MonoTouch.Foundation;
-
+using MonoTouch.CoreLocation;
 namespace FrameWorkApp
 {
 	public partial class MainViewController : UIViewController
@@ -47,9 +47,10 @@ namespace FrameWorkApp
 				//Display Alert
 				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
 			} 
-
+		
 
 		}
+	
 
 		public override void ViewWillAppear (bool animated)
 		{
