@@ -47,9 +47,19 @@ namespace FrameWorkApp
 				//Display Alert
 				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
 			} 
-		
+
+			if(CLLocationManager.Status==CLAuthorizationStatus.NotDetermined){
+				CLLocationManager manager = new CLLocationManager ();
+				manager.StartUpdatingLocation ();
+				manager.StopUpdatingLocation ();
+			}
+
 			if (CLLocationManager.Status != CLAuthorizationStatus.Authorized) {
-			
+					startButton.Enabled = false;
+					notification.AlertAction = "Location Serivces must be enabled to use application!";
+					notification.AlertBody = "We noticed you have disabled lcoation serivces for this application. Please enable these before continuing.";
+					//Display Alert
+					UIApplication.SharedApplication.ScheduleLocalNotification (notification);
 			}
 		}
 	
@@ -66,7 +76,7 @@ namespace FrameWorkApp
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			base.ViewWillDisappear (animated);
+				base.ViewWillDisappear (animated);
 		}
 
 		public override void ViewDidDisappear (bool animated)
