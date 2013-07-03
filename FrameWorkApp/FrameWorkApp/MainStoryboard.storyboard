@@ -12,10 +12,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Kangaroo.png" id="wF7-g9-x3l">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="543"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10">
                                 <rect key="frame" x="282" y="421" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -673,7 +669,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Kangaroo.png" width="320" height="480"/>
         <image name="StatsPicture.jpg" width="268" height="188"/>
         <image name="trophy2.png" width="1271" height="925"/>
     </resources>
