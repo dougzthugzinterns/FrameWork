@@ -85,65 +85,57 @@ namespace FrameWorkApp
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-	
+			rawGPS.createCoordinatesWhenHeadingChangesToAddToList ();
+			double currentXAcceleration = 0;
+			double currentYAcceleration = 0;
+			double currentZAcceleration = 0;
+			double lowpassXAcceleration = 0;
+			double lowpassYAcceleration = 0;
+			double lowpassZAcceleration = 0;
+			double speedAtEvent = 0;
+			double speedAfterEvent = 0;
 
-			Console.WriteLine (CLLocationManager.Status);
-			if (CLLocationManager.Status==CLAuthorizationStatus.Authorized) {
-				rawGPS.createCoordinatesWhenHeadingChangesToAddToList ();
-				double currentXAcceleration = 0;
-				double currentYAcceleration = 0;
-				double currentZAcceleration = 0;
-				double lowpassXAcceleration = 0;
-				double lowpassYAcceleration = 0;
-				double lowpassZAcceleration = 0;
-				double speedAtEvent = 0;
-				double speedAfterEvent = 0;
+			avgaccel = 0;
+			currentMaxAvgAccel = 0;
 
-				avgaccel = 0;
-				currentMaxAvgAccel = 0;
+			_motionManager = new CMMotionManager ();
+			_motionManager.DeviceMotionUpdateInterval = .5;
+			_motionManager.StartDeviceMotionUpdates (NSOperationQueue.CurrentQueue, (data,error) =>
+			{
 
-				_motionManager = new CMMotionManager ();
-				_motionManager.DeviceMotionUpdateInterval = .5;
-				_motionManager.StartDeviceMotionUpdates (NSOperationQueue.CurrentQueue, (data,error) =>
-				{
+				//lowpassXAcceleration = (currentXAcceleration * klowpassfilterfactor) + (previousLowPassFilteredXAcceleration * (1.0 - klowpassfilterfactor));
 
-					//lowpassXAcceleration = (currentXAcceleration * klowpassfilterfactor) + (previousLowPassFilteredXAcceleration * (1.0 - klowpassfilterfactor));
+				avgaccel = Math.Sqrt ((data.UserAcceleration.X * data.UserAcceleration.X) + 
+				                      (data.UserAcceleration.Y * data.UserAcceleration.Y) +
+				                      (data.UserAcceleration.Z * data.UserAcceleration.Z));
 
-					avgaccel = Math.Sqrt ((data.UserAcceleration.X * data.UserAcceleration.X) + 
-					                      (data.UserAcceleration.Y * data.UserAcceleration.Y) +
-					                      (data.UserAcceleration.Z * data.UserAcceleration.Z));
+				if (avgaccel > threshold) {
+					eventInProgress = true;
+					speedAtEvent = rawGPS.convertToKilometersPerHour (rawGPS.getSpeedInMetersPerSecondUnits());
+				} else if ((avgaccel < threshold) && eventInProgress) {
+					eventcount++;
+					speedAfterEvent = rawGPS.convertToKilometersPerHour (rawGPS.getSpeedInMetersPerSecondUnits());
+					this.eventCounter.Text = eventcount.ToString ();
+					this.determineHardStoOrHardStart (speedAtEvent, speedAfterEvent);
+					this.SpeedAtEventLabel.Text = "Speed At Event: " + speedAtEvent.ToString ();
+					this.SpeedAfterEventLabel.Text = "Speed After Event: " + speedAfterEvent.ToString ();
+					eventInProgress = false;
+					currentCoord.Latitude = getCurrentLatitude ();
+					currentCoord.Longitude = getCurrentLongitude ();
+					coordList.Add (currentCoord);
+					fileManager.addEventToTripEventFile (currentCoord);
+					this.latReading.Text = currentCoord.Latitude.ToString ();
+					this.longReading.Text = currentCoord.Longitude.ToString ();
+				}
 
-					if (avgaccel > threshold) {
-						eventInProgress = true;
-						speedAtEvent = rawGPS.convertToKilometersPerHour (rawGPS.getSpeedInMetersPerSecondUnits());
-					} else if ((avgaccel < threshold) && eventInProgress) {
-						eventcount++;
-						speedAfterEvent = rawGPS.convertToKilometersPerHour (rawGPS.getSpeedInMetersPerSecondUnits());
-						this.eventCounter.Text = eventcount.ToString ();
-						this.determineHardStoOrHardStart (speedAtEvent, speedAfterEvent);
-						this.SpeedAtEventLabel.Text = "Speed At Event: " + speedAtEvent.ToString ();
-						this.SpeedAfterEventLabel.Text = "Speed After Event: " + speedAfterEvent.ToString ();
-						eventInProgress = false;
-						currentCoord.Latitude = getCurrentLatitude ();
-						currentCoord.Longitude = getCurrentLongitude ();
-						coordList.Add (currentCoord);
-						fileManager.addEventToTripEventFile (currentCoord);
-						this.latReading.Text = currentCoord.Latitude.ToString ();
-						this.longReading.Text = currentCoord.Longitude.ToString ();
-					}
+				this.avgAcc.Text = avgaccel.ToString ("0.0000");
 
-					this.avgAcc.Text = avgaccel.ToString ("0.0000");
+				if (avgaccel > currentMaxAvgAccel)
+					currentMaxAvgAccel = avgaccel;
 
-					if (avgaccel > currentMaxAvgAccel)
-						currentMaxAvgAccel = avgaccel;
+				this.maxAvgAcc.Text = currentMaxAvgAccel.ToString ("0.0000");
+			});
 
-					this.maxAvgAcc.Text = currentMaxAvgAccel.ToString ("0.0000");
-				});
-
-			} else {
-				DismissModalViewControllerAnimated (true);
-
-			}
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 

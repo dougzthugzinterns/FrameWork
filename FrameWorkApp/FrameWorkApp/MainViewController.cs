@@ -48,7 +48,9 @@ namespace FrameWorkApp
 				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
 			} 
 		
-
+			if (CLLocationManager.Status != CLAuthorizationStatus.Authorized) {
+			
+			}
 		}
 	
 
