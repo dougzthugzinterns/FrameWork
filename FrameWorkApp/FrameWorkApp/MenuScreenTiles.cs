@@ -16,14 +16,15 @@ namespace FrameWorkApp
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.NavigationController.SetNavigationBarHidden (true,animated);
+			this.NavigationController.SetNavigationBarHidden (true,false);
 		}
 
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-			this.NavigationController.SetNavigationBarHidden (false,animated);
+			this.NavigationController.SetNavigationBarHidden (false,false);
+
 		}
 		partial void menuToHome (NSObject sender)
 		{
