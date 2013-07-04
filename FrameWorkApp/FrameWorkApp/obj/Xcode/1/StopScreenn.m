@@ -14,6 +14,8 @@
 @synthesize latReading = _latReading;
 @synthesize longReading = _longReading;
 @synthesize maxAvgAcc = _maxAvgAcc;
+@synthesize SpeedAfterEventLabel = _SpeedAfterEventLabel;
+@synthesize SpeedAtEventLabel = _SpeedAtEventLabel;
 
 - (IBAction)resetMaxValues:(id)sender {
 }
@@ -21,9 +23,4 @@
 - (IBAction)stopButton:(id)sender {
 }
 
-- (void)dealloc {
-    [_SpeedAtEventLabel release];
-    [_SpeedAfterEventLabel release];
-    [super dealloc];
-}
 @end

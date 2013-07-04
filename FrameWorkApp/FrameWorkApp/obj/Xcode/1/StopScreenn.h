@@ -15,6 +15,8 @@
 	UILabel *_latReading;
 	UILabel *_longReading;
 	UILabel *_maxAvgAcc;
+	UILabel *_SpeedAfterEventLabel;
+	UILabel *_SpeedAtEventLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *avgAcc;
@@ -26,8 +28,10 @@
 @property (nonatomic, retain) IBOutlet UILabel *longReading;
 
 @property (nonatomic, retain) IBOutlet UILabel *maxAvgAcc;
-@property (retain, nonatomic) IBOutlet UILabel *SpeedAtEventLabel;
-@property (retain, nonatomic) IBOutlet UILabel *SpeedAfterEventLabel;
+
+@property (nonatomic, retain) IBOutlet UILabel *SpeedAfterEventLabel;
+
+@property (nonatomic, retain) IBOutlet UILabel *SpeedAtEventLabel;
 
 - (IBAction)resetMaxValues:(id)sender;
 

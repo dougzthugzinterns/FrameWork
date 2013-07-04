@@ -18,6 +18,7 @@ namespace FrameWorkApp
 		{
 			commonLocationManager = new CLLocationManager ();
 			listOfTripLocationCoordinates = new List<CLLocation> ();
+			//this.initialize ();
 		}
 
 		public double getCurrentUserLatitude ()
@@ -43,14 +44,20 @@ namespace FrameWorkApp
 		public double getSpeedInMetersPerSecondUnits ()
 		{
 			double speed = 0;
+
 			commonLocationManager.DesiredAccuracy = CLLocation.AccuracyBest;
+
 			if (CLLocationManager.LocationServicesEnabled) {
 				commonLocationManager.StartUpdatingLocation ();
+
 			}
+
 			speed = commonLocationManager.Location.Speed;
 			if(speed < 0){
 				speed = 0;
 			}
+
+			//commonLocationManager.StopUpdatingLocation ();
 			return speed;
 			
 		}
@@ -63,6 +70,17 @@ namespace FrameWorkApp
 		public double convertMetersToKilometers (double meters)
 		{
 			return meters / 1000.0;
+		}
+		/*public void initialize(){
+			commonLocationManager.DesiredAccuracy = CLLocation.AccuracyBest;
+			if (CLLocationManager.LocationServicesEnabled) {
+				commonLocationManager.StartUpdatingLocation ();
+
+			}
+		}*/
+
+		public void stopGPSReadings(){
+			commonLocationManager.StopUpdatingLocation();
 		}
 
 		public void createCoordinatesWhenHeadingChangesToAddToList ()
@@ -87,7 +105,6 @@ namespace FrameWorkApp
 				fileManager.addLocationToTripDistanceFile(new CLLocationCoordinate2D(lat, longt));
 			};
 		}
-
 		public double CalculateDistanceTraveled (List<CLLocation> locations)
 		{
 			double distance = 0;

@@ -32,6 +32,9 @@ namespace FrameWorkApp
 		[Outlet]
 		MonoTouch.UIKit.UILabel SpeedAtEventLabel { get; set; }
 
+		[Outlet]
+		MonoTouch.UIKit.UILabel speedDiffLabel { get; set; }
+
 		[Action ("resetMaxValues:")]
 		partial void resetMaxValues (MonoTouch.Foundation.NSObject sender);
 
@@ -65,14 +68,19 @@ namespace FrameWorkApp
 				maxAvgAcc = null;
 			}
 
+			if (SpeedAfterEventLabel != null) {
+				SpeedAfterEventLabel.Dispose ();
+				SpeedAfterEventLabel = null;
+			}
+
 			if (SpeedAtEventLabel != null) {
 				SpeedAtEventLabel.Dispose ();
 				SpeedAtEventLabel = null;
 			}
 
-			if (SpeedAfterEventLabel != null) {
-				SpeedAfterEventLabel.Dispose ();
-				SpeedAfterEventLabel = null;
+			if (speedDiffLabel != null) {
+				speedDiffLabel.Dispose ();
+				speedDiffLabel = null;
 			}
 		}
 	}

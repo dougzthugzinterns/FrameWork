@@ -1,18 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Victoria’s iPhone 5!" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/TripSummaryScreen.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Victoria’s iPhone 5!" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/StopScreenn.cs">
     <Files>
-      <File FileName="FrameWorkApp/StopScreenn.cs" Line="143" Column="38" />
-      <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="75" Column="1" />
-      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/StopScreenn.cs" Line="104" Column="51" />
+      <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="54" Column="17" />
+      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="31" Column="112" />
       <File FileName="FrameWorkApp/Main.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/StopScreenn.designer.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="72" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="FrameWorkApp" expanded="True" selected="True" />
+          <Node name="FrameWorkApp" expanded="True">
+            <Node name="Helper Classes" expanded="True" />
+            <Node name="MainStoryboard.storyboard" selected="True" />
+            <Node name="StopScreenn.cs" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
