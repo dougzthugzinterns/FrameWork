@@ -162,6 +162,11 @@
     <BundleResource Include="Resources\StartFinalDefault.png" />
     <BundleResource Include="Resources\finalstop1.png" />
     <BundleResource Include="Resources\finalstop.png" />
+    <BundleResource Include="Resources\achivementButton.png" />
+    <BundleResource Include="Resources\takeTripButton.png" />
+    <BundleResource Include="Resources\settingsButton.png" />
+    <BundleResource Include="Resources\smallYellow.png" />
+    <BundleResource Include="Resources\tallOrangeButton.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
