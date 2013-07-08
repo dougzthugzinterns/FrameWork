@@ -3,13 +3,16 @@ using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 using System.Drawing;
 using MonoTouch.CoreLocation;
+using System.Collections.Generic;
 using Google.Maps;
+
 
 
 namespace FrameWorkApp
 {
 	public partial class GoogleMapScreen : UIViewController
 	{
+
 		Google.Maps.MapView mapView;
 		private CLLocationCoordinate2D[] markersToAdd;
 
@@ -20,7 +23,14 @@ namespace FrameWorkApp
 
 			//From File
 
-			markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
+			//Temporarily Disabled....########################
+			//markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
+			//#############################
+			markersToAdd = new CLLocationCoordinate2D[StopScreenn.listOfTripLocationCoordinates.Count];
+			for(int i = 0; i< StopScreenn.listOfTripLocationCoordinates.Count; i++){
+				CLLocation newClLocation = StopScreenn.listOfTripLocationCoordinates[i];
+				markersToAdd[i] = new CLLocationCoordinate2D(newClLocation.Coordinate.Latitude, newClLocation.Coordinate.Longitude);
+			}
 		}
 
 
@@ -113,14 +123,58 @@ namespace FrameWorkApp
 			View = mapView;
 
 		}
+
+		public void reverseGeoCodeCallBackFunction()
+		{
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 			cameraAutoZoomAndReposition (this.markersToAdd);
+
+			/*
+			Google.Maps.Polyline myPolyLine = new Google.Maps.Polyline ();
+			Google.Maps.MutablePath myMutablePath = new Google.Maps.MutablePath ();
+
+
+
+
+			for (int i = 0; i<StopScreenn.listOfTripLocationCoordinates.Count; i++) {
+
+				myMutablePath.AddCoordinate (new CLLocationCoordinate2D (StopScreenn.listOfTripLocationCoordinates [i].Coordinate.Latitude, StopScreenn.listOfTripLocationCoordinates [i].Coordinate.Longitude));
+
+			}
+			myPolyLine.Path = myMutablePath;
+			myPolyLine.Map = this.mapView;
+			*/
+
+
+
+
+
+
 		}
+
+	
+
+
 		public override void ViewWillAppear (bool animated)
 		{
+			//Get path for the trip that will be shown on the map
+			List<CLLocationCoordinate2D> googleDirectionServiceParameters = new List<CLLocationCoordinate2D> ();
+			foreach (CLLocationCoordinate2D coord in markersToAdd) {
+				googleDirectionServiceParameters.Add(coord);
+			}
+
+			GoogleMapsDirectionService gmds = new GoogleMapsDirectionService (googleDirectionServiceParameters);
+			List<Polyline> polylinesToPlot = gmds.performGoogleDirectionServiceApiCallout ();
+			foreach (Polyline line in polylinesToPlot) {
+				line.StrokeWidth = 10;
+				line.Map = this.mapView;
+			}
+
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (false, animated);
 			mapView.StartRendering ();
