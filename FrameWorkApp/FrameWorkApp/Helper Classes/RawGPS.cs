@@ -88,6 +88,11 @@ namespace FrameWorkApp
 			};
 		}
 
+		public void stopGPSReadings(){
+			commonLocationManager.StopUpdatingLocation ();
+
+		}
+
 		public double CalculateDistanceTraveled (List<CLLocation> locations)
 		{
 			double distance = 0;

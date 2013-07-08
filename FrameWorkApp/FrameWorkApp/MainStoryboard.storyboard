@@ -207,6 +207,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed Difference:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L81-4T-xhG">
+                                <rect key="frame" x="20" y="284" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rmk-ta-HyI">
+                                <rect key="frame" x="165" y="284" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -219,6 +233,7 @@
                         <outlet property="latReading" destination="IAE-L3-rV3" id="1lu-dQ-nwe"/>
                         <outlet property="longReading" destination="Wju-LG-Z5X" id="NtE-ja-4P7"/>
                         <outlet property="maxAvgAcc" destination="wSs-NY-W8p" id="5gH-ho-WTp"/>
+                        <outlet property="speedDiffLabel" destination="Rmk-ta-HyI" id="CrP-Rd-gKk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V7-ts-oxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -760,6 +775,7 @@
                 <relationship kind="outlet" name="latReading" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="longReading" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="maxAvgAcc" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="speedDiffLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="TripLogScreen" superclassName="UITableViewController">
