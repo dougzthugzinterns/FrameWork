@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>P77UVGKRE3.com.conf.FrameGame</string>
+	<string>P77UVGKRE3.com.conf.FrameWorkID</string>
 	<key>get-task-allow</key>
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>P77UVGKRE3.com.conf.FrameGame</string>
+		<string>P77UVGKRE3.com.conf.FrameWorkID</string>
 	</array>
 </dict>
 </plist>

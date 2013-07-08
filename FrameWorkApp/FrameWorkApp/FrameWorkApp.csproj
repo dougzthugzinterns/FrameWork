@@ -45,7 +45,6 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchI18n />
     <MtouchArch>ARMv7</MtouchArch>
-    <CodesignProvision>3EDE0B86-3E78-4099-8215-C60E30DF8362</CodesignProvision>
     <IpaPackageName />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -142,6 +141,7 @@
     <Compile Include="Helper Classes\TableSource.cs" />
     <Compile Include="Helper Classes\RawGPS.cs" />
     <Compile Include="Helper Classes\SDMFileManager.cs" />
+    <Compile Include="Helper Classes\GoogleMapsDirectionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
