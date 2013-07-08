@@ -3,6 +3,7 @@ using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 using System.Drawing;
 using MonoTouch.CoreLocation;
+using System.Collections.Generic;
 using Google.Maps;
 
 
@@ -12,6 +13,7 @@ namespace FrameWorkApp
 	{
 		Google.Maps.MapView mapView;
 		private CLLocationCoordinate2D[] markersToAdd;
+		private CLLocationCoordinate2D[] pathMarkers;
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
@@ -19,6 +21,20 @@ namespace FrameWorkApp
 			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 
 			//From File
+
+			//Temporarily Disabled....########################
+			//markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
+			//#############################
+
+			pathMarkers = new CLLocationCoordinate2D[StopScreenn.listOfTripLocationCoordinates.Count];
+			for(int i = 0; i< StopScreenn.listOfTripLocationCoordinates.Count; i++){
+				CLLocation newClLocation = StopScreenn.listOfTripLocationCoordinates[i];
+				pathMarkers[i] = new CLLocationCoordinate2D(newClLocation.Coordinate.Latitude, newClLocation.Coordinate.Longitude);
+			}
+			//From Internal Data Structures
+			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
+
+			//EVENTS
 			markersToAdd = TripSummaryScreen.events;
 		}
 
@@ -120,6 +136,20 @@ namespace FrameWorkApp
 		}
 		public override void ViewWillAppear (bool animated)
 		{
+
+			//Get path for the trip that will be shown on the map
+			List<CLLocationCoordinate2D> googleDirectionServiceParameters = new List<CLLocationCoordinate2D> ();
+			foreach (CLLocationCoordinate2D coord in pathMarkers) {
+				googleDirectionServiceParameters.Add(coord);
+			}
+
+			GoogleMapsDirectionService gmds = new GoogleMapsDirectionService (googleDirectionServiceParameters);
+			List<Polyline> polylinesToPlot = gmds.performGoogleDirectionServiceApiCallout ();
+			foreach (Polyline line in polylinesToPlot) {
+				line.StrokeWidth = 10;
+				line.Map = this.mapView;
+			}
+
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (false, animated);
 			mapView.StartRendering ();

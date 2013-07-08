@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Collections;
+using System.Collections.Generic;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreMotion;
@@ -11,6 +12,7 @@ namespace FrameWorkApp
 	public partial class StopScreenn : UIViewController
 	{
 		public static SDMFileManager fileManager = new SDMFileManager ();
+		public static List<CLLocation> listOfTripLocationCoordinates = new List<CLLocation> ();
 		RawGPS rawGPS = new RawGPS ();
 		public static double distanceTraveledForCurrentTrip = 0;
 		public static double numberHardStarts = 0;
@@ -141,6 +143,8 @@ namespace FrameWorkApp
 
 		partial void stopButton (NSObject sender)
 		{
+			//rawGPS.listOfTripLocationCoordinates.Add (new CLLocation (rawGPS.getCurrentUserLatitude (), rawGPS.getCurrentUserLongitude ()));
+			//listOfTripLocationCoordinates = rawGPS.listOfTripLocationCoordinates;
 			distanceTraveledForCurrentTrip = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(rawGPS.listOfTripLocationCoordinates));
 		}
 
@@ -156,6 +160,8 @@ namespace FrameWorkApp
 
 		public override void ViewWillAppear (bool animated)
 		{
+			//add users location when trip starts
+			//rawGPS.listOfTripLocationCoordinates.Add (new CLLocation (rawGPS.getCurrentUserLatitude (), rawGPS.getCurrentUserLongitude ()));
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (true, animated);
 		}

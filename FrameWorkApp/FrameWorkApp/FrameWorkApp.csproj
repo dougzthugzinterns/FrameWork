@@ -141,6 +141,7 @@
     <Compile Include="Helper Classes\TableSource.cs" />
     <Compile Include="Helper Classes\RawGPS.cs" />
     <Compile Include="Helper Classes\SDMFileManager.cs" />
+    <Compile Include="Helper Classes\GoogleMapsDirectionService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
