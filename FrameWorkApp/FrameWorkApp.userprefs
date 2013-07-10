@@ -5,7 +5,7 @@
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FrameWorkApp" expanded="True">
-            <Node name="MainStoryboard.storyboard" selected="True" />
+            <Node name="FlipsideViewController.cs" selected="True" />
           </Node>
         </State>
       </Pad>

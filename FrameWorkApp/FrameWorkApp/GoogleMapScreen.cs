@@ -26,16 +26,16 @@ namespace FrameWorkApp
 			//markersToAdd = StopScreenn.fileManager.readDataFromTripEventFile ();
 			//#############################
 
-			pathMarkers = new CLLocationCoordinate2D[StopScreenn.listOfTripLocationCoordinates.Count];
-			for(int i = 0; i< StopScreenn.listOfTripLocationCoordinates.Count; i++){
-				CLLocation newClLocation = StopScreenn.listOfTripLocationCoordinates[i];
+			pathMarkers = new CLLocationCoordinate2D[StopScreen.listOfTripLocationCoordinates.Count];
+			for(int i = 0; i< StopScreen.listOfTripLocationCoordinates.Count; i++){
+				CLLocation newClLocation = StopScreen.listOfTripLocationCoordinates[i];
 				pathMarkers[i] = new CLLocationCoordinate2D(newClLocation.Coordinate.Latitude, newClLocation.Coordinate.Longitude);
 			}
 			//From Internal Data Structures
 			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 
 			//EVENTS
-			markersToAdd = TripSummaryScreen.events;
+			markersToAdd = TripSummaryScreen.importedGpsEvents;
 		}
 
 
@@ -51,10 +51,6 @@ namespace FrameWorkApp
 
 			// Release any cached data, images, etc that aren't in use.
 		}
-
-
-
-
 
 		public void addMarkerAtLocationsWithGoogleMarker(CLLocationCoordinate2D[] position){
 
@@ -77,56 +73,49 @@ namespace FrameWorkApp
 				Map = mapView
 			};
 
-
-
-
 		}
 		*/
 
 		public int getZoomLevel(double minLat, double maxLat, double minLong, double maxLong, float mapWidth, float mapHeight){
-			float mapdisplay = Math.Min (mapHeight, mapWidth);
+			float mapDisplayDimension = Math.Min (mapHeight, mapWidth);
 			int earthRadiusinKm = 6371;
 			double degToRadDivisor = 57.2958;
-			double dist = (earthRadiusinKm * Math.Acos (Math.Sin(minLat / degToRadDivisor) * Math.Sin(maxLat / degToRadDivisor) + 
+			double distanceToBeCovered = (earthRadiusinKm * Math.Acos (Math.Sin(minLat / degToRadDivisor) * Math.Sin(maxLat / degToRadDivisor) + 
 			                                            (Math.Cos (minLat / degToRadDivisor)  * Math.Cos (maxLat / degToRadDivisor) * Math.Cos ((maxLong / degToRadDivisor) - (minLong / degToRadDivisor)))));
 
-			double zoom = Math.Floor (8 - Math.Log(1.6446 * dist / Math.Sqrt(2 * (mapdisplay * mapdisplay))) / Math.Log (2));
-			if(minLat == maxLat && minLong == maxLong){zoom = 15;}
+			double zoomLevel = Math.Floor (8 - Math.Log(1.6446 * distanceToBeCovered / Math.Sqrt(2 * (mapDisplayDimension * mapDisplayDimension))) / Math.Log (2));
+			if(minLat == maxLat && minLong == maxLong){zoomLevel = 15;}
 
-			return (int) zoom;
+			return (int) zoomLevel;
 		}
 
 		public void cameraAutoZoomAndReposition(CLLocationCoordinate2D[] markerPositions){
-			double minLong = 180.0f;
-			double maxLong = -180.0f;
-			double minLat = 90.0f;
-			double maxLat = -90.0f;
+			const double minimumLongitudeInGoogle = 180.0f;
+			const double maximumLongitudeInGoogle = -180.0f;
+			const double minimumLatitudeInGoogle = 90.0f;
+			const double maximumLatitudeInGoogle = -90.0f;
 			foreach (CLLocationCoordinate2D currentMarkerPosition in markerPositions) {
-				maxLong = Math.Max (maxLong, currentMarkerPosition.Longitude);
-				minLong = Math.Min (minLong, currentMarkerPosition.Longitude);
-				maxLat = Math.Max (maxLat, currentMarkerPosition.Latitude);
-				minLat = Math.Min (minLat, currentMarkerPosition.Latitude);
+				maximumLongitudeInGoogle = Math.Max (maximumLongitudeInGoogle, currentMarkerPosition.Longitude);
+				minimumLongitudeInGoogle = Math.Min (minimumLongitudeInGoogle, currentMarkerPosition.Longitude);
+				maximumLatitudeInGoogle = Math.Max (maximumLatitudeInGoogle, currentMarkerPosition.Latitude);
+				minimumLatitudeInGoogle = Math.Min (minimumLatitudeInGoogle, currentMarkerPosition.Latitude);
 			}
-			CLLocationCoordinate2D coord1 = new CLLocationCoordinate2D (maxLat, minLong);
-			CLLocationCoordinate2D coord2 = new CLLocationCoordinate2D (minLat, maxLong);
-			mapView.MoveCamera(CameraUpdate.FitBounds(new CoordinateBounds(coord1, coord2)));	
-
-			mapView.MoveCamera (CameraUpdate.ZoomToZoom((float) (getZoomLevel (minLat,maxLat,minLong,maxLong,mapViewOutlet.Frame.Size.Width,mapViewOutlet.Frame.Size.Height))));
+			CLLocationCoordinate2D northWestBound = new CLLocationCoordinate2D (maximumLatitudeInGoogle, minimumLongitudeInGoogle);
+			CLLocationCoordinate2D southEastBound = new CLLocationCoordinate2D (minimumLatitudeInGoogle, maximumLongitudeInGoogle);
+			mapView.MoveCamera(CameraUpdate.FitBounds(new CoordinateBounds(northWestBound, southEastBound)));	
+			float desiredZoomlevel = (float) (getZoomLevel (minimumLatitudeInGoogle,maximumLatitudeInGoogle,minimumLongitudeInGoogle,maximumLongitudeInGoogle,mapViewOutlet.Frame.Size.Width,mapViewOutlet.Frame.Size.Height)));
+			mapView.MoveCamera (CameraUpdate.ZoomToZoom(desiredZoomlevel);
 
 		}
 
 		public override void LoadView ()
 		{
 			base.LoadView ();
-
 			CameraPosition camera = CameraPosition.FromCamera (37.797865, -122.402526,0);
 			mapView = Google.Maps.MapView.FromCamera (RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
-
 			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
-
 			View = mapView;
-
 		}
 		public override void ViewDidLoad ()
 		{
@@ -136,14 +125,13 @@ namespace FrameWorkApp
 		}
 		public override void ViewWillAppear (bool animated)
 		{
-
 			//Get path for the trip that will be shown on the map
-			List<CLLocationCoordinate2D> googleDirectionServiceParameters = new List<CLLocationCoordinate2D> ();
+			List<CLLocationCoordinate2D> googlePathCoordinates = new List<CLLocationCoordinate2D> ();
 			foreach (CLLocationCoordinate2D coord in pathMarkers) {
-				googleDirectionServiceParameters.Add(coord);
+				googlePathCoordinates.Add(coord);
 			}
 
-			GoogleMapsDirectionService gmds = new GoogleMapsDirectionService (googleDirectionServiceParameters);
+			GoogleMapsDirectionService gmds = new GoogleMapsDirectionService (googlePathCoordinates);
 			List<Polyline> polylinesToPlot = gmds.performGoogleDirectionServiceApiCallout ();
 			foreach (Polyline line in polylinesToPlot) {
 				line.StrokeWidth = 10;

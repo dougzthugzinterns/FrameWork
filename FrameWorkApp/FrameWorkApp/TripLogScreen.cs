@@ -34,7 +34,6 @@ namespace FrameWorkApp
 				new UIBarButtonItem ("Clear History"
 			                    , UIBarButtonItemStyle.Plain
 			                    , (sender,args) => {
-			
 				new SDMFileManager().clearTripLogFile();
 						tripHistory = new Trip[0];
 						updateTripLogTableView ();

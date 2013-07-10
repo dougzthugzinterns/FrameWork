@@ -11,13 +11,13 @@ namespace FrameWorkApp
 	{
 		SDMFileManager fileManager = new SDMFileManager();
 
-		public List<CLLocation> listOfTripLocationCoordinates { get; set; }
+		public List<CLLocation> listOfRawGPSTripLocationCoordinates { get; set; }
 		CLLocationManager commonLocationManager;
 
 		public RawGPS ()
 		{
 			commonLocationManager = new CLLocationManager ();
-			listOfTripLocationCoordinates = new List<CLLocation> ();
+			listOfRawGPSTripLocationCoordinates = new List<CLLocation> ();
 		}
 
 		public double getCurrentUserLatitude ()
@@ -42,17 +42,16 @@ namespace FrameWorkApp
 
 		public double getSpeedInMetersPerSecondUnits ()
 		{
-			double speed = 0;
+			double currentSpeed = 0;
 			commonLocationManager.DesiredAccuracy = CLLocation.AccuracyBest;
 			if (CLLocationManager.LocationServicesEnabled) {
 				commonLocationManager.StartUpdatingLocation ();
 			}
-			speed = commonLocationManager.Location.Speed;
-			if(speed < 0){
-				speed = 0;
+			currentSpeed = commonLocationManager.Location.Speed;
+			if(currentSpeed < 0){
+				currentSpeed = 0;
 			}
-			return speed;
-			
+			return currentSpeed;
 		}
 
 		public double convertToKilometersPerHour (double metersPerSecond)
@@ -69,7 +68,7 @@ namespace FrameWorkApp
 		{
 			commonLocationManager.DesiredAccuracy = CLLocation.AccuracyBest;
 			commonLocationManager.HeadingFilter = 30;
-			CLLocation temp;
+			CLLocation newCoordinate;
 
 			if (CLLocationManager.LocationServicesEnabled) {
 				commonLocationManager.StartUpdatingLocation ();
@@ -79,28 +78,27 @@ namespace FrameWorkApp
 			}
 
 			commonLocationManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
-				Double lat= this.getCurrentUserLatitude ();
-				Double longt=this.getCurrentUserLongitude ();
-				temp = new CLLocation (lat, longt);
-				listOfTripLocationCoordinates.Add (temp);
+				Double lattitude= this.getCurrentUserLatitude ();
+				Double longitude=this.getCurrentUserLongitude ();
+				newCoordinate = new CLLocation (lattitude, longitude);
+				listOfRawGPSTripLocationCoordinates.Add (newCoordinate);
 				//Add to Temp File
-				fileManager.addLocationToTripDistanceFile(new CLLocationCoordinate2D(lat, longt));
+				fileManager.addLocationToTripDistanceFile(new CLLocationCoordinate2D(lattitude, longitude));
 			};
 		}
 
 		public void stopGPSReadings(){
 			commonLocationManager.StopUpdatingLocation ();
-
 		}
 
 		public double CalculateDistanceTraveled (List<CLLocation> locations)
 		{
 			double distance = 0;
-			double temp = 0;
+			double partialDistance = 0;
 			for (int i = 0; i<locations.Count; i++) {
 				if (i + 1 < locations.Count) {
-					temp = locations [i].DistanceFrom (locations [i + 1]);
-					distance = distance + temp;
+					partialDistance = locations [i].DistanceFrom (locations [i + 1]);
+					distance = distance + partialDistance;
 				}
 			}
 			return distance;

@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="-51" y="790"/>
         </scene>
-        <!--Stop Screenn-->
+        <!--Stop Screen-->
         <scene sceneID="c4B-qz-Bj5">
             <objects>
-                <viewController id="4mT-3D-Tp9" customClass="StopScreenn" sceneMemberID="viewController">
+                <viewController id="4mT-3D-Tp9" customClass="StopScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNk-L8-0XN">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -763,8 +763,8 @@
         <class className="StatsScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsScreen.h"/>
         </class>
-        <class className="StopScreenn" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StopScreenn.h"/>
+        <class className="StopScreen" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StopScreen.h"/>
             <relationships>
                 <relationship kind="action" name="resetMaxValues:"/>
                 <relationship kind="action" name="stopButton:"/>

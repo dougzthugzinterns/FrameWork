@@ -26,13 +26,13 @@ namespace FrameWorkApp
 			//Make Sure all files and folders already exist if not create them
 			if (!Directory.Exists (libraryAppFolder)) {
 				Directory.CreateDirectory (libraryAppFolder);
-				File.Create (tripLogFile);
+				File.Create (tripLogFile).Close();
 			}
 			if (!File.Exists (currentTripDistanceFile)) {
-				File.Create (currentTripDistanceFile);
+				File.Create (currentTripDistanceFile).Close();
 			}
 			if (!File.Exists (currentTripEventFile)) {
-				File.Create (currentTripEventFile);
+				File.Create (currentTripEventFile).Close();
 			}
 
 			Console.WriteLine ("Trip Log Path:"+ tripLogFile);
@@ -82,8 +82,8 @@ namespace FrameWorkApp
 			ArrayList temporaryArrayListForData = new ArrayList();
 
 			foreach (String line in File.ReadLines (tripLogFile)) {
-				String[] splitLine = line.Split (',');
-				Trip newTrip = new Trip (DateTime.ParseExact(splitLine[0], "MM/dd/yyyy h:mmtt",null), int.Parse(splitLine[1]));
+				String[] coordinatesSplitAtComma = line.Split (',');
+				Trip newTrip = new Trip (DateTime.ParseExact(coordinatesSplitAtComma[0], "MM/dd/yyyy h:mmtt",null), int.Parse(coordinatesSplitAtComma[1]));
 				temporaryArrayListForData.Add (newTrip);
 			}
 
@@ -111,14 +111,14 @@ namespace FrameWorkApp
 
 		//Reads Current Trip Event File back in and returns a Array of CLLocationCordinates2D objects.
 		public  CLLocationCoordinate2D[] readDataFromTripEventFile(){
-			ArrayList temporaryArrayListForData = new ArrayList();
+			ArrayList temporaryArrayListForCoordinateData = new ArrayList();
 
 			foreach (String line in File.ReadLines (currentTripEventFile)) {
-				String[] splitLine = line.Split (',');
-				CLLocationCoordinate2D newCoordinate = new CLLocationCoordinate2D (Double.Parse(splitLine[0]), Double.Parse(splitLine[1]));
-				temporaryArrayListForData.Add (newCoordinate);
+				String[] coordinateDataSplitAtComma = line.Split (',');
+				CLLocationCoordinate2D newCoordinate = new CLLocationCoordinate2D (Double.Parse(coordinateDataSplitAtComma[0]), Double.Parse(coordinateDataSplitAtComma[1]));
+				temporaryArrayListForCoordinateData.Add (newCoordinate);
 			}
-			return (CLLocationCoordinate2D[])temporaryArrayListForData.ToArray(typeof(CLLocationCoordinate2D));
+			return (CLLocationCoordinate2D[])temporaryArrayListForCoordinateData.ToArray(typeof(CLLocationCoordinate2D));
 		}
 
 		//Clears Current Trip Event File
@@ -155,8 +155,6 @@ namespace FrameWorkApp
 		public void clearCurrentTripDistanceFile(){
 			File.WriteAllText (currentTripDistanceFile, "");
 		}
-
-
 
 	}
 }

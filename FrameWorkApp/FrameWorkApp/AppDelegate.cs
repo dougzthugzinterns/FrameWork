@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Google.Maps;
 using System.Collections;
+using MonoTouch.CoreLocation;
 
 namespace FrameWorkApp
 {
@@ -43,6 +44,7 @@ namespace FrameWorkApp
 			}
 			return true;
 		}
+
 public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
 		{
 			// show an alert
@@ -68,6 +70,9 @@ public override void ReceivedLocalNotification(UIApplication application, UILoca
 		// This method is called as part of the transiton from background to active state.
 		public override void WillEnterForeground (UIApplication application)
 		{
+			if(CLLocationManager.Status == CLAuthorizationStatus.Denied){
+				new UIAlertView("Location Services must be enabled to use application!","We noticed you have disabled location services for this application. Please enable these before continuing. Please enable these before starting a new trip.", null, "OK", null).Show();
+			}
 		}
 		// This method is called when the application is about to terminate. Save data, if needed. 
 		public override void WillTerminate (UIApplication application)

@@ -7,6 +7,7 @@ namespace FrameWorkApp
 	public partial class MainViewController : UIViewController
 	{
 		SDMFileManager fileManager= new SDMFileManager();
+		CLLocationManager manager = new CLLocationManager ();
 
 		public MainViewController (IntPtr handle) : base (handle)
 		{
@@ -32,35 +33,34 @@ namespace FrameWorkApp
 		{
 			base.ViewDidLoad ();
 
-			//Alert User of Previous Trip in Progress was Saved
-			UILocalNotification notification = new UILocalNotification();
-
 			//Phone Crashed during a Trip in Progress, write data recovered to trip log.
 			if (fileManager.currentTripInProgress()) {
-				notification.AlertAction = "Trip Data Recovered!";
-				notification.AlertBody = "We detected your phone has shut down during a trip, " +
-					"but good news we managed to recover your data up to that point your phone shut down.";
 				//Read Data from Recovered File.
 				fileManager.addDataToTripLogFile(new Trip(fileManager.getDateOfLastPointEnteredInCurrentTrip(), fileManager.readDataFromTripEventFile().Length));
 				fileManager.clearCurrentTripEventFile();
 				fileManager.clearCurrentTripDistanceFile ();
 				//Display Alert
-				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+				new UIAlertView ("Trip Data Recovered!", "We detected your phone has shut down during a trip, but good news we managed to recover your data up to that point your phone shut down.", null, "Yay!", null).Show ();
+
 			} 
 
 			if(CLLocationManager.Status==CLAuthorizationStatus.NotDetermined){
-				CLLocationManager manager = new CLLocationManager ();
+
+				manager.AuthorizationChanged += (sender,e) => {
+					if(CLLocationManager.Status == CLAuthorizationStatus.Denied){
+						new UIAlertView("Location Services must be enabled to use application!","We noticed you have disabled location services for this application. Please enable these before continuing. Please enable these before starting a new trip.", null, "OK", null).Show();
+					}
+				};
 				manager.StartUpdatingLocation ();
 				manager.StopUpdatingLocation ();
+				
+			}
+			else{
+				if(CLLocationManager.Status == CLAuthorizationStatus.Denied){
+					new UIAlertView("Location Services must be enabled to use application!","We noticed you have disabled location services for this application. Please enable these before continuing. Please enable these before starting a new trip.", null, "OK", null).Show();
+				}
 			}
 
-			if (CLLocationManager.Status != CLAuthorizationStatus.Authorized) {
-					startButton.Enabled = false;
-					notification.AlertAction = "Location Serivces must be enabled to use application!";
-					notification.AlertBody = "We noticed you have disabled lcoation serivces for this application. Please enable these before continuing.";
-					//Display Alert
-					UIApplication.SharedApplication.ScheduleLocalNotification (notification);
-			}
 		}
 	
 

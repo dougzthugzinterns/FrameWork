@@ -117,10 +117,6 @@
     <Compile Include="MenuScreenTiles.designer.cs">
       <DependentUpon>MenuScreenTiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="StopScreenn.cs" />
-    <Compile Include="StopScreenn.designer.cs">
-      <DependentUpon>StopScreenn.cs</DependentUpon>
-    </Compile>
     <Compile Include="AchievementsScreen.cs" />
     <Compile Include="AchievementsScreen.designer.cs">
       <DependentUpon>AchievementsScreen.cs</DependentUpon>
@@ -142,6 +138,10 @@
     <Compile Include="Helper Classes\RawGPS.cs" />
     <Compile Include="Helper Classes\SDMFileManager.cs" />
     <Compile Include="Helper Classes\GoogleMapsDirectionService.cs" />
+    <Compile Include="StopScreen.cs" />
+    <Compile Include="StopScreen.designer.cs">
+      <DependentUpon>StopScreen.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

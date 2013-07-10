@@ -8,12 +8,14 @@ namespace FrameWorkApp
 {
 	public class GoogleMapsDirectionService
 	{
-		List<CLLocationCoordinate2D> coordinatesToPlotPathWith;
+		private List<CLLocationCoordinate2D> coordinatesToPlotPathWith;
+		const String requestUrl = "http://maps.google.com/maps/api/directions/xml";
+
 		public GoogleMapsDirectionService (List<CLLocationCoordinate2D> coordsToPlotPath)
 		{
 			this.coordinatesToPlotPathWith = coordsToPlotPath;
 		}
-
+	
 		public Boolean wasGoogleCalloutSuccessful(System.Xml.XmlDocument xmlString){
 			var directionsResponseNode = xmlString.SelectSingleNode("DirectionsResponse");
 			if (directionsResponseNode != null)
@@ -33,11 +35,11 @@ namespace FrameWorkApp
 		public List<Google.Maps.Polyline> getPathsFromSingleCallout(System.Xml.XmlDocument xmlString){
 			List<Google.Maps.Polyline> listofPolylinesObtainedFromSingleCallout = new List<Google.Maps.Polyline> ();
 			var legs = xmlString.SelectNodes ("DirectionsResponse/route/leg");
-			foreach (System.Xml.XmlNode leg in legs) {
+			foreach (System.Xml.XmlNode singleLeg in legs) {
 				//int stepCount = 1;
-				var stepNodes = leg.SelectNodes ("step");
-				foreach (System.Xml.XmlNode stepNode in stepNodes) {
-					var encodedPolylinePoints = stepNode.SelectSingleNode ("polyline/points").InnerText;
+				var stepNodes = singleLeg.SelectNodes ("step");
+				foreach (System.Xml.XmlNode singleStepNode in stepNodes) {
+					var encodedPolylinePoints = singleStepNode.SelectSingleNode ("polyline/points").InnerText;
 					Google.Maps.MutablePath currentMutablePath = new Google.Maps.MutablePath ();
 					Polyline currentPolyline = new Polyline ();
 					List<CLLocationCoordinate2D> decodedCoordinates = DecodePolylinePoints (encodedPolylinePoints);
@@ -48,7 +50,6 @@ namespace FrameWorkApp
 					listofPolylinesObtainedFromSingleCallout.Add (currentPolyline);
 				}
 			}
-
 			return listofPolylinesObtainedFromSingleCallout;	
 		}
 
@@ -58,97 +59,96 @@ namespace FrameWorkApp
 		private List<CLLocationCoordinate2D> DecodePolylinePoints(string encodedPoints) 
 		{
 			if (encodedPoints == null || encodedPoints == "") return null;
-			List<CLLocationCoordinate2D> poly = new List<CLLocationCoordinate2D>();
-			char[] polylinechars = encodedPoints.ToCharArray();
+			List<CLLocationCoordinate2D> listOfPointsDecoded = new List<CLLocationCoordinate2D>();
+			char[] polyLineChars = encodedPoints.ToCharArray();
 			int index = 0;
-
 			int currentLat = 0;
 			int currentLng = 0;
-			int next5bits;
+			int next5Bits;
 			int sum;
 			int shifter;
 			try
 			{
-				while (index < polylinechars.Length)
+				while (index < polyLineChars.Length)
 				{
 					// calculate next latitude
 					sum = 0;
 					shifter = 0;
 					do
 					{
-						next5bits = (int)polylinechars[index++] - 63;
-						sum |= (next5bits & 31) << shifter;
+						next5Bits = (int)polyLineChars[index++] - 63;
+						sum |= (next5Bits & 31) << shifter;
 						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
+					} while (next5Bits >= 32 && index < polyLineChars.Length);
 
-					if (index >= polylinechars.Length)
+					if (index >= polyLineChars.Length)
 						break;
-
 					currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-
 					//calculate next longitude
 					sum = 0;
 					shifter = 0;
 					do
 					{
-						next5bits = (int)polylinechars[index++] - 63;
-						sum |= (next5bits & 31) << shifter;
+						next5Bits = (int)polyLineChars[index++] - 63;
+						sum |= (next5Bits & 31) << shifter;
 						shifter += 5;
-					} while (next5bits >= 32 && index < polylinechars.Length);
-
-					if (index >= polylinechars.Length && next5bits >= 32)
+					} while (next5Bits >= 32 && index < polyLineChars.Length);
+					if (index >= polyLineChars.Length && next5Bits >= 32)
 						break;
-
 					currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
 					CLLocationCoordinate2D p = new CLLocationCoordinate2D();
 					p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
 					p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
-					poly.Add(p);
+					listOfPointsDecoded.Add(p);
 				} 
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine (ex.ToString ());
 			}
-			return poly;
+			return listOfPointsDecoded;
+		}
+
+		public String createGoogleDirectionServiceCalloutString(int startingIndexOfCoordinatesToPlotPathWith)
+		{
+			String requestURLWithParameters = requestUrl;
+			if(startingIndexOfCoordinatesToPlotPathWith+1 < coordinatesToPlotPathWith.Count){
+				String originLatitude= coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Latitude.ToString();
+				String originLongitude = coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Longitude.ToString();
+				String wayPointsString = "";
+				int lastPointinBlock = startingIndexOfCoordinatesToPlotPathWith;
+				for(int j = startingIndexOfCoordinatesToPlotPathWith+1; j< startingIndexOfCoordinatesToPlotPathWith+9; j++){
+					if(j+1 < coordinatesToPlotPathWith.Count){
+						wayPointsString += coordinatesToPlotPathWith[j].Latitude + "," + coordinatesToPlotPathWith[j].Longitude + "|";
+						lastPointinBlock = j;
+					}
+				}
+				String destinationLatitude = coordinatesToPlotPathWith[lastPointinBlock+1].Latitude.ToString();
+				String destinationLongitude = coordinatesToPlotPathWith[lastPointinBlock+1].Longitude.ToString();
+				requestURLWithParameters += "?origin=" + originLatitude + "," + originLongitude + "&destination=" + destinationLatitude + "," + destinationLongitude;
+				if(wayPointsString.Length >0){
+					wayPointsString = wayPointsString.Substring(0, wayPointsString.Length - 1); //get rid of last "|"
+					requestURLWithParameters += "&waypoints="+wayPointsString;
+				}
+				requestURLWithParameters += "&sensor=true&units=metric";
+				Console.WriteLine("request URL"+requestURLWithParameters);
+			}
+			return requestURLWithParameters;
+
 		}
 
 		public  List<Google.Maps.Polyline> performGoogleDirectionServiceApiCallout(){
 
 			int numberOfCallouts = 0;
-			foreach (CLLocationCoordinate2D coord in coordinatesToPlotPathWith) {
-				//Console.WriteLine ("Coordinates while turning "+coord.Latitude.ToString() + ","+coord.Longitude.ToString());
-			}
-			//CLLocationCoordinate2D[][] calloutArrayOfCoordinates = new CLLocationCoordinate2D[][] { };
 			List<Google.Maps.Polyline> allPolylinesToShowOnMap = new List<Google.Maps.Polyline> ();
-			var requestUrl = "http://maps.google.com/maps/api/directions/xml?origin=";
 			if (coordinatesToPlotPathWith.Count < 2) {
 				return new List<Google.Maps.Polyline>();
 			}
 			try
 			{
-
 				for(int i = 0; i <coordinatesToPlotPathWith.Count; i = i +9){
-					if(i+1 < coordinatesToPlotPathWith.Count){
-						String originLatitude= coordinatesToPlotPathWith[i].Latitude.ToString();
-						String originLongitude = coordinatesToPlotPathWith[i].Longitude.ToString();
-						String wayPointsString = "";
-						int lastPointinBlock = i;
-						for(int j = i+1; j< i+9; j++){
-							if(j+1 < coordinatesToPlotPathWith.Count){
-								wayPointsString += coordinatesToPlotPathWith[j].Latitude + "," + coordinatesToPlotPathWith[j].Longitude + "|";
-								lastPointinBlock = j;
-							}
-						}
-						wayPointsString = wayPointsString.Substring(0, wayPointsString.Length - 1); //get rid of last "|"
-						String destinationLatitude = coordinatesToPlotPathWith[lastPointinBlock+1].Latitude.ToString();
-						String destinationLongitude = coordinatesToPlotPathWith[lastPointinBlock+1].Longitude.ToString();
 						var client = new WebClient();
-						String requestURLwithParameters = requestUrl + coordinatesToPlotPathWith[i].Latitude + "," + coordinatesToPlotPathWith[i].Longitude + "&destination=" + coordinatesToPlotPathWith[i+1].Latitude + "," + coordinatesToPlotPathWith[i+1].Longitude;
-						requestURLwithParameters += (wayPointsString.Length > 0)? "&waypoints="+wayPointsString : "";
-						requestURLwithParameters += "&sensor=true&units=metric";
-						Console.WriteLine("request URL"+requestURLwithParameters);
-
+						String requestURLwithParameters = createGoogleDirectionServiceCalloutString(i);
 						var calloutResultString = client.DownloadString(requestURLwithParameters);
 						var calloutXMLDocument = new System.Xml.XmlDocument { InnerXml = calloutResultString };
 						Boolean wasCalloutSuccessful = wasGoogleCalloutSuccessful(calloutXMLDocument);
@@ -165,7 +165,6 @@ namespace FrameWorkApp
 							allPolylinesToShowOnMap.Add(eachPolyLine);
 						}
 					}
-				}
 				Console.WriteLine ("Number of coordinates" + coordinatesToPlotPathWith.Count);
 				Console.WriteLine ("Number of callouts" + numberOfCallouts);
 				return allPolylinesToShowOnMap;
