@@ -141,6 +141,7 @@ namespace FrameWorkApp
 			};
 			foreach (Polyline line in polylinesToPlot) {
 				line.StrokeWidth = 10;
+				line.StrokeColor = UIColor.FromRGBA(0f, 25/255f, 1f, 0.5f);
 				line.Map = this.mapView;
 			}
 			var endMarker = new Marker(){

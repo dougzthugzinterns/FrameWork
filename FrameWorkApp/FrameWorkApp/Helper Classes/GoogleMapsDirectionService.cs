@@ -22,10 +22,10 @@ namespace FrameWorkApp
 			{
 				var statusNode = directionsResponseNode.SelectSingleNode("status");
 				if (statusNode != null && statusNode.InnerText.Equals ("OK")) {
-					Console.WriteLine ("StatusNode OK");
+					Console.WriteLine ("StatusNode OK"+statusNode.InnerText);
 					return true;
 				} else{
-					Console.WriteLine ("StatusNode not OK");
+					Console.WriteLine ("StatusNode not OK"+statusNode.InnerText);
 					return false;
 				}
 			}
@@ -112,33 +112,34 @@ namespace FrameWorkApp
 		public String createGoogleDirectionServiceCalloutString(int startingIndexOfCoordinatesToPlotPathWith)
 		{
 			String requestURLWithParameters = requestUrl;
-			if(startingIndexOfCoordinatesToPlotPathWith+1 < coordinatesToPlotPathWith.Count){
-				String originLatitude= coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Latitude.ToString();
-				String originLongitude = coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Longitude.ToString();
-				String wayPointsString = "";
-				int lastPointinBlock = startingIndexOfCoordinatesToPlotPathWith;
-				for(int j = startingIndexOfCoordinatesToPlotPathWith+1; j< startingIndexOfCoordinatesToPlotPathWith+9; j++){
-					if(j+1 < coordinatesToPlotPathWith.Count){
-						wayPointsString += coordinatesToPlotPathWith[j].Latitude + "," + coordinatesToPlotPathWith[j].Longitude + "|";
-						lastPointinBlock = j;
-					}
+
+			String originLatitude= coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Latitude.ToString();
+			String originLongitude = coordinatesToPlotPathWith[startingIndexOfCoordinatesToPlotPathWith].Longitude.ToString();
+			String wayPointsString = "";
+			int lastPointinBlock = startingIndexOfCoordinatesToPlotPathWith;
+			for(int j = startingIndexOfCoordinatesToPlotPathWith+1; j< startingIndexOfCoordinatesToPlotPathWith+9; j++){
+				if(j+1 < coordinatesToPlotPathWith.Count){
+					wayPointsString += coordinatesToPlotPathWith[j].Latitude + "," + coordinatesToPlotPathWith[j].Longitude + "|";
+					lastPointinBlock = j;
 				}
-				String destinationLatitude = coordinatesToPlotPathWith[lastPointinBlock+1].Latitude.ToString();
-				String destinationLongitude = coordinatesToPlotPathWith[lastPointinBlock+1].Longitude.ToString();
-				requestURLWithParameters += "?origin=" + originLatitude + "," + originLongitude + "&destination=" + destinationLatitude + "," + destinationLongitude;
-				if(wayPointsString.Length >0){
-					wayPointsString = wayPointsString.Substring(0, wayPointsString.Length - 1); //get rid of last "|"
-					requestURLWithParameters += "&waypoints="+wayPointsString;
-				}
-				requestURLWithParameters += "&sensor=true&units=metric";
-				Console.WriteLine("request URL"+requestURLWithParameters);
 			}
+			String destinationLatitude = coordinatesToPlotPathWith[lastPointinBlock+1].Latitude.ToString();
+			String destinationLongitude = coordinatesToPlotPathWith[lastPointinBlock+1].Longitude.ToString();
+			requestURLWithParameters += "?origin=" + originLatitude + "," + originLongitude + "&destination=" + destinationLatitude + "," + destinationLongitude;
+			if(wayPointsString.Length >0){
+				wayPointsString = wayPointsString.Substring(0, wayPointsString.Length - 1); //get rid of last "|"
+				requestURLWithParameters += "&waypoints="+wayPointsString;
+			}
+			requestURLWithParameters += "&sensor=true&units=metric";
+			Console.WriteLine("request URL"+requestURLWithParameters);
+			
 			return requestURLWithParameters;
 
 		}
 
 		public  List<Google.Maps.Polyline> performGoogleDirectionServiceApiCallout(){
 
+			Console.WriteLine ("Number of coordinates" + coordinatesToPlotPathWith.Count);
 			int numberOfCallouts = 0;
 			List<Google.Maps.Polyline> allPolylinesToShowOnMap = new List<Google.Maps.Polyline> ();
 			if (coordinatesToPlotPathWith.Count < 2) {
@@ -147,6 +148,7 @@ namespace FrameWorkApp
 			try
 			{
 				for(int i = 0; i <coordinatesToPlotPathWith.Count; i = i +9){
+					if(i+1 < coordinatesToPlotPathWith.Count){
 						var client = new WebClient();
 						String requestURLwithParameters = createGoogleDirectionServiceCalloutString(i);
 						var calloutResultString = client.DownloadString(requestURLwithParameters);
@@ -165,6 +167,7 @@ namespace FrameWorkApp
 							allPolylinesToShowOnMap.Add(eachPolyLine);
 						}
 					}
+				}
 				Console.WriteLine ("Number of coordinates" + coordinatesToPlotPathWith.Count);
 				Console.WriteLine ("Number of callouts" + numberOfCallouts);
 				return allPolylinesToShowOnMap;
