@@ -90,10 +90,10 @@ namespace FrameWorkApp
 		}
 
 		public void cameraAutoZoomAndReposition(CLLocationCoordinate2D[] markerPositions){
-			const double minimumLongitudeInGoogle = 180.0f;
-			const double maximumLongitudeInGoogle = -180.0f;
-			const double minimumLatitudeInGoogle = 90.0f;
-			const double maximumLatitudeInGoogle = -90.0f;
+			double minimumLongitudeInGoogle = 180.0f;
+			double maximumLongitudeInGoogle = -180.0f;
+			double minimumLatitudeInGoogle = 90.0f;
+			double maximumLatitudeInGoogle = -90.0f;
 			foreach (CLLocationCoordinate2D currentMarkerPosition in markerPositions) {
 				maximumLongitudeInGoogle = Math.Max (maximumLongitudeInGoogle, currentMarkerPosition.Longitude);
 				minimumLongitudeInGoogle = Math.Min (minimumLongitudeInGoogle, currentMarkerPosition.Longitude);
@@ -103,8 +103,8 @@ namespace FrameWorkApp
 			CLLocationCoordinate2D northWestBound = new CLLocationCoordinate2D (maximumLatitudeInGoogle, minimumLongitudeInGoogle);
 			CLLocationCoordinate2D southEastBound = new CLLocationCoordinate2D (minimumLatitudeInGoogle, maximumLongitudeInGoogle);
 			mapView.MoveCamera(CameraUpdate.FitBounds(new CoordinateBounds(northWestBound, southEastBound)));	
-			float desiredZoomlevel = (float) (getZoomLevel (minimumLatitudeInGoogle,maximumLatitudeInGoogle,minimumLongitudeInGoogle,maximumLongitudeInGoogle,mapViewOutlet.Frame.Size.Width,mapViewOutlet.Frame.Size.Height)));
-			mapView.MoveCamera (CameraUpdate.ZoomToZoom(desiredZoomlevel);
+			float desiredZoomlevel = (float) (getZoomLevel (minimumLatitudeInGoogle,maximumLatitudeInGoogle,minimumLongitudeInGoogle,maximumLongitudeInGoogle,mapViewOutlet.Frame.Size.Width,mapViewOutlet.Frame.Size.Height));
+			mapView.MoveCamera (CameraUpdate.ZoomToZoom(desiredZoomlevel));
 
 		}
 
