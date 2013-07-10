@@ -31,6 +31,11 @@ namespace FrameWorkApp
 		CLLocationCoordinate2D currentCoord;		//container for current location
 		private CMMotionManager _motionManager;
 
+		//Type Codes for Markers
+		const int UNKNOWN_EVENT_TYPE= 0;
+		const int HARD_BRAKE_TYPE= 1;
+		const int HARD_ACCEL_TYPE= 2;
+
 		public StopScreen (IntPtr handle) : base (handle)
 		{
 			rawGPS = new RawGPS ();
@@ -93,9 +98,14 @@ namespace FrameWorkApp
 				Console.WriteLine("----------------------------------");
 				this.speedDiffLabel.Text = startAndStopSpeedDifference.ToString();
 				eventInProgress = false;
+
+				//Get GPS
 				currentCoord.Latitude = rawGPS.getCurrentUserLatitude();
 				currentCoord.Longitude = rawGPS.getCurrentUserLongitude();
-				fileManager.addEventToTripEventFile (currentCoord);
+				//Create new Event and add to Text File
+				Event newEvent = new Event (currentCoord, UNKNOWN_EVENT_TYPE);
+				fileManager.addEventToTripEventFile (newEvent);
+
 				this.latReading.Text = currentCoord.Latitude.ToString ();
 				this.longReading.Text = currentCoord.Longitude.ToString ();
 				pollCountOnEventTriggered = 0;

@@ -13,7 +13,7 @@ namespace FrameWorkApp
 	{
 		SDMFileManager fileManager = new SDMFileManager();
 		RawGPS rawGPS = new RawGPS();
-		public static CLLocationCoordinate2D[] importedGpsEvents;
+		public static Event[] importedGpsEvents;
 		
 		public TripSummaryScreen (IntPtr handle) : base (handle)
 		{

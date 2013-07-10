@@ -142,6 +142,7 @@
     <Compile Include="StopScreen.designer.cs">
       <DependentUpon>StopScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper Classes\Event.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -99,26 +99,27 @@ namespace FrameWorkApp
 		//Trip Event File Methods
 
 		//Add Event Cooridnate to Current Trip Event File
-		public  void addEventToTripEventFile(CLLocationCoordinate2D newCoordiante){
+		public  void addEventToTripEventFile(Event newEvent){
 			FileStream currentTripFile_FileStream = File.Open (currentTripEventFile,FileMode.Append);
 			StreamWriter currentTripFile_SteamWriter = new StreamWriter (currentTripFile_FileStream);
 
-			currentTripFile_SteamWriter.WriteLine (newCoordiante.Latitude+","+newCoordiante.Longitude);
+			currentTripFile_SteamWriter.WriteLine (newEvent.Location.Latitude+","+newEvent.Location.Longitude+","+newEvent.ColorNumber);
 
 			currentTripFile_SteamWriter.Close ();
 			currentTripFile_FileStream.Close ();
 		}
 
 		//Reads Current Trip Event File back in and returns a Array of CLLocationCordinates2D objects.
-		public  CLLocationCoordinate2D[] readDataFromTripEventFile(){
+		public  Event[] readDataFromTripEventFile(){
 			ArrayList temporaryArrayListForCoordinateData = new ArrayList();
 
 			foreach (String line in File.ReadLines (currentTripEventFile)) {
 				String[] coordinateDataSplitAtComma = line.Split (',');
 				CLLocationCoordinate2D newCoordinate = new CLLocationCoordinate2D (Double.Parse(coordinateDataSplitAtComma[0]), Double.Parse(coordinateDataSplitAtComma[1]));
-				temporaryArrayListForCoordinateData.Add (newCoordinate);
+				Event newEvent = new Event (newCoordinate, int.Parse(coordinateDataSplitAtComma [2]));
+				temporaryArrayListForCoordinateData.Add (newEvent);
 			}
-			return (CLLocationCoordinate2D[])temporaryArrayListForCoordinateData.ToArray(typeof(CLLocationCoordinate2D));
+			return (Event[])temporaryArrayListForCoordinateData.ToArray(typeof(Event));
 		}
 
 		//Clears Current Trip Event File

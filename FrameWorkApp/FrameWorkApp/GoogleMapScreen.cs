@@ -12,7 +12,7 @@ namespace FrameWorkApp
 	public partial class GoogleMapScreen : UIViewController
 	{
 		Google.Maps.MapView mapView;
-		private CLLocationCoordinate2D[] markersToAdd;
+		private Event[] markersToAdd;
 		private CLLocationCoordinate2D[] pathMarkers;
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
@@ -39,7 +39,7 @@ namespace FrameWorkApp
 		}
 
 
-		public GoogleMapScreen (IntPtr handle,CLLocationCoordinate2D[] markerLocationsToAdd) : base (handle)
+		public GoogleMapScreen (IntPtr handle,Event[] markerLocationsToAdd) : base (handle)
 		{
 			markersToAdd = markerLocationsToAdd;
 		}
@@ -52,13 +52,13 @@ namespace FrameWorkApp
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		public void addMarkerAtLocationsWithGoogleMarker(CLLocationCoordinate2D[] position){
+		public void addMarkerAtLocationsWithGoogleMarker(Event[] position){
 
-			foreach(CLLocationCoordinate2D newPos in position){
+			foreach(Event newEve in position){
 				var newMarker = new Marker(){
-					Title = "Incident Occured",
-					Position = newPos,
-					Icon = Google.Maps.Marker.MarkerImage(UIColor.Red),
+					Title = newEve.Text,
+					Position = newEve.Location,
+					Icon = Google.Maps.Marker.MarkerImage(newEve.Color),
 					Map = mapView
 				};
 			}
@@ -89,16 +89,16 @@ namespace FrameWorkApp
 			return (int) zoomLevel;
 		}
 
-		public void cameraAutoZoomAndReposition(CLLocationCoordinate2D[] markerPositions){
+		public void cameraAutoZoomAndReposition(Event[] eventMarkers){
 			double minimumLongitudeInGoogle = 180.0f;
 			double maximumLongitudeInGoogle = -180.0f;
 			double minimumLatitudeInGoogle = 90.0f;
 			double maximumLatitudeInGoogle = -90.0f;
-			foreach (CLLocationCoordinate2D currentMarkerPosition in markerPositions) {
-				maximumLongitudeInGoogle = Math.Max (maximumLongitudeInGoogle, currentMarkerPosition.Longitude);
-				minimumLongitudeInGoogle = Math.Min (minimumLongitudeInGoogle, currentMarkerPosition.Longitude);
-				maximumLatitudeInGoogle = Math.Max (maximumLatitudeInGoogle, currentMarkerPosition.Latitude);
-				minimumLatitudeInGoogle = Math.Min (minimumLatitudeInGoogle, currentMarkerPosition.Latitude);
+			foreach (Event currentMarker in eventMarkers) {
+				maximumLongitudeInGoogle = Math.Max (maximumLongitudeInGoogle, currentMarker.Location.Longitude);
+				minimumLongitudeInGoogle = Math.Min (minimumLongitudeInGoogle, currentMarker.Location.Longitude);
+				maximumLatitudeInGoogle = Math.Max (maximumLatitudeInGoogle, currentMarker.Location.Latitude);
+				minimumLatitudeInGoogle = Math.Min (minimumLatitudeInGoogle, currentMarker.Location.Latitude);
 			}
 			CLLocationCoordinate2D northWestBound = new CLLocationCoordinate2D (maximumLatitudeInGoogle, minimumLongitudeInGoogle);
 			CLLocationCoordinate2D southEastBound = new CLLocationCoordinate2D (minimumLatitudeInGoogle, maximumLongitudeInGoogle);
@@ -133,10 +133,22 @@ namespace FrameWorkApp
 
 			GoogleMapsDirectionService gmds = new GoogleMapsDirectionService (googlePathCoordinates);
 			List<Polyline> polylinesToPlot = gmds.performGoogleDirectionServiceApiCallout ();
+			var startMarker = new Marker(){
+				Title = "Start",
+				Position = polylinesToPlot[0].Path.CoordinateAtIndex(0),
+				Icon = Google.Maps.Marker.MarkerImage(UIColor.Green),
+				Map = mapView
+			};
 			foreach (Polyline line in polylinesToPlot) {
 				line.StrokeWidth = 10;
 				line.Map = this.mapView;
 			}
+			var endMarker = new Marker(){
+				Title = "End",
+				Position = polylinesToPlot[polylinesToPlot.Count-1].Path.CoordinateAtIndex(polylinesToPlot[polylinesToPlot.Count-1].Path.Count-1),
+				Icon = Google.Maps.Marker.MarkerImage(UIColor.Red),
+				Map = mapView
+			};
 
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (false, animated);
