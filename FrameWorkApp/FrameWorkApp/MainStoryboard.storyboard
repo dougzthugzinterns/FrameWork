@@ -695,9 +695,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Stats" id="Qr5-KP-4Mk"/>
                     <connections>
-                        <outlet property="totalDistanceLabel" destination="yud-BF-XRC" id="hUl-qX-Wdf"/>
-                        <outlet property="totalNumberOfEventsLabel" destination="JnM-uc-f5T" id="36w-q1-8e8"/>
-                        <outlet property="totalPointsLabel" destination="yfY-TX-dv3" id="xvS-nT-vqY"/>
+                        <outlet property="totalDistanceLabel" destination="yud-BF-XRC" id="Ucq-Tv-8cx"/>
+                        <outlet property="totalNumberOfEventsLabel" destination="JnM-uc-f5T" id="aF9-Yv-P3f"/>
+                        <outlet property="totalPointsLabel" destination="yfY-TX-dv3" id="Woc-fQ-w3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CRA-sO-85x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,7 +807,6 @@
             <relationships>
                 <relationship kind="outlet" name="totalDistanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalNumberOfEventsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalPointsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="StopScreen" superclassName="UIViewController">

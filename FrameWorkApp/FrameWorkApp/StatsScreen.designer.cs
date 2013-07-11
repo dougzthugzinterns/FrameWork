@@ -11,9 +11,31 @@ namespace FrameWorkApp
 	[Register ("StatsScreen")]
 	partial class StatsScreen
 	{
+		[Outlet]
+		MonoTouch.UIKit.UILabel totalDistanceLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel totalNumberOfEventsLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel totalPointsLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (totalDistanceLabel != null) {
+				totalDistanceLabel.Dispose ();
+				totalDistanceLabel = null;
+			}
+
+			if (totalNumberOfEventsLabel != null) {
+				totalNumberOfEventsLabel.Dispose ();
+				totalNumberOfEventsLabel = null;
+			}
+
+			if (totalPointsLabel != null) {
+				totalPointsLabel.Dispose ();
+				totalPointsLabel = null;
+			}
 		}
 	}
 }

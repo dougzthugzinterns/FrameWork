@@ -35,7 +35,7 @@ namespace FrameWorkApp
 			totalDistance += tripDistance;
 			totalNumberOfEvents += tripNumberOfEvents;
 
-			totalPoints = Math.Max ((totalPoints + (int)tripDistance + ((-3) * tripNumberOfEvents)), -1000000);
+			totalPoints = Math.Max ((totalPoints + (int)tripDistance + ((-3) * tripNumberOfEvents)), 0);
 		}
 	}
 }
