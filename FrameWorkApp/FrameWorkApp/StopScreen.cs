@@ -188,7 +188,7 @@ namespace FrameWorkApp
 			else {
 				new UIAlertView ("Location Services must be enabled to use application!", "We noticed you have disabled location services for this application. Please enable location services.", null, "Ok", null).Show ();
 				//FIX LATER###########################################################################
-				//DismissModalViewControllerAnimated (animated);
+				//DismissModalViewControllerAnimated (true);
 				//####################################################################################
 			}
 
@@ -275,7 +275,9 @@ namespace FrameWorkApp
 		public override void ViewWillAppear (bool animated)
 		{
 			//add users location when trip starts
-			rawGPS.listOfRawGPSTripLocationCoordinates.Add (new CLLocation (rawGPS.getCurrentUserLatitude (), rawGPS.getCurrentUserLongitude ()));
+			if (CLLocationManager.Status == CLAuthorizationStatus.Authorized) {
+				rawGPS.listOfRawGPSTripLocationCoordinates.Add (new CLLocation (rawGPS.getCurrentUserLatitude (), rawGPS.getCurrentUserLongitude ()));
+			}
 			base.ViewWillAppear (animated);
 			this.NavigationController.SetNavigationBarHidden (true, animated);
 		}
