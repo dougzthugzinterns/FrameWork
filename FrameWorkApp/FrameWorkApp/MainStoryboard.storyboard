@@ -807,6 +807,7 @@
             <relationships>
                 <relationship kind="outlet" name="totalDistanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalNumberOfEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalPointsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="StopScreen" superclassName="UIViewController">

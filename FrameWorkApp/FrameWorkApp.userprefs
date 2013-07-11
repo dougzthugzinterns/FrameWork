@@ -1,18 +1,23 @@
 ﻿<Properties GitUserInfo="UsingMD">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Helper Classes/RawGPS.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Emily’s iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FrameWorkApp/Helper Classes/User.cs">
     <Files>
-      <File FileName="FrameWorkApp/MainViewController.cs" Line="11" Column="3" />
+      <File FileName="FrameWorkApp/MainViewController.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/Helper Classes/SDMFileManager.cs" Line="1" Column="1" />
       <File FileName="FrameWorkApp/Helper Classes/RawGPS.cs" Line="30" Column="1" />
-      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="96" Column="4" />
+      <File FileName="FrameWorkApp/GoogleMapScreen.cs" Line="1" Column="1" />
+      <File FileName="FrameWorkApp/Helper Classes/User.cs" Line="38" Column="94" />
+      <File FileName="FrameWorkApp/StatsScreen.cs" Line="20" Column="24" />
+      <File FileName="FrameWorkApp/TripSummaryScreen.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="FrameWorkApp" expanded="True" selected="True">
-            <Node name="Helper Classes" expanded="True" />
+          <Node name="FrameWorkApp" expanded="True">
+            <Node name="Helper Classes" expanded="True">
+              <Node name="User.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
