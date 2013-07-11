@@ -14,7 +14,7 @@ namespace FrameWorkApp
 		RawGPS rawGPS = new RawGPS();
 		private static Event[] importedGpsEvents;
 		double totalDistance;
-		
+		int pointChange=0;
 		public TripSummaryScreen (IntPtr handle) : base (handle)
 		{
 			User currentUser = fileManager.readUserFile ();
@@ -29,7 +29,7 @@ namespace FrameWorkApp
 			fileManager.clearCurrentTripDistanceFile();
 
 			//Update User Data
-			currentUser.updateData (totalDistance, importedGpsEvents.Length);
+			pointChange=currentUser.updateData (totalDistance, importedGpsEvents.Length);
 
 			fileManager.updateUserFile (currentUser);
 		}
@@ -44,7 +44,7 @@ namespace FrameWorkApp
 			fastAccelsLabel.Text = StopScreen.numberHardStarts.ToString ();
 			double totalNumberofEvents = (StopScreen.numberHardStops) + (StopScreen.numberHardStarts);
 			totalBreakAcessLabel.Text = totalNumberofEvents.ToString ();
-			
+			pointsEarnedLabel.Text = pointChange.ToString ();
 			//tripSummaryEventsLabel.Text = StopScreenn.fileManager.readDataFromTripEventFile ().Length.ToString();
 			tripSummaryEventsLabel.Text = importedGpsEvents.Length.ToString();
 			distanceLabel.Text = totalDistance.ToString ();

@@ -30,12 +30,14 @@ namespace FrameWorkApp
 			set { this.totalPoints = value;}
 		}
 
-		public void updateData (double tripDistance, int tripNumberOfEvents)
+		public int updateData (double tripDistance, int tripNumberOfEvents)
 		{
 			totalDistance += tripDistance;
 			totalNumberOfEvents += tripNumberOfEvents;
 
 			totalPoints = Math.Max ((totalPoints + (int)tripDistance + ((-3) * tripNumberOfEvents)), 0);
+
+			return (totalPoints + (int)tripDistance + ((-3) * tripNumberOfEvents));
 		}
 	}
 }
