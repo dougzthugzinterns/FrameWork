@@ -144,6 +144,7 @@
     </Compile>
     <Compile Include="Helper Classes\Event.cs" />
     <Compile Include="Helper Classes\User.cs" />
+    <Compile Include="LoadingOverlay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

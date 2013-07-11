@@ -10,6 +10,7 @@ namespace FrameWorkApp
 {
 	public partial class GoogleMapScreen : UIViewController
 	{
+		LoadingOverlay loadingOverlay;
 		Google.Maps.MapView mapView;
 		private Event[] markersToAdd;
 		private CLLocationCoordinate2D[] pathMarkers;
@@ -113,20 +114,42 @@ namespace FrameWorkApp
 			base.LoadView ();
 			CameraPosition camera = CameraPosition.FromCamera (37.797865, -122.402526,0);
 			mapView = Google.Maps.MapView.FromCamera (RectangleF.Empty, camera);
-			mapView.MyLocationEnabled = true;
-			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
-			View = mapView;
+
+
 		}
 
 		public override void ViewDidLoad ()
 		{
+
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 			cameraAutoZoomAndReposition (this.markersToAdd);
+			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
+			this.View.Add (loadingOverlay);
+
+
 		}
 
 		public override void ViewWillAppear (bool animated)
 		{
+			base.ViewWillAppear (animated);
+			this.NavigationController.SetNavigationBarHidden (false, animated);
+
+
+
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+
+
+			base.ViewDidAppear (animated);
+
+			mapView.MyLocationEnabled = true;
+			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
+			View = mapView;
+
+			//Stuff from ViewWillAppear
 			//Get path for the trip that will be shown on the map
 			List<CLLocationCoordinate2D> googlePathCoordinates = new List<CLLocationCoordinate2D> ();
 			foreach (CLLocationCoordinate2D coord in pathMarkers) {
@@ -153,9 +176,8 @@ namespace FrameWorkApp
 				Map = mapView
 			};
 
-			base.ViewWillAppear (animated);
-			this.NavigationController.SetNavigationBarHidden (false, animated);
 			mapView.StartRendering ();
+			loadingOverlay.Hide ();
 		}
 
 		public override void ViewWillDisappear (bool animated)

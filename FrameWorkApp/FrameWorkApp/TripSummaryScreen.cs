@@ -10,6 +10,7 @@ namespace FrameWorkApp
 {
 	public partial class TripSummaryScreen : UIViewController
 	{
+
 		SDMFileManager fileManager = new SDMFileManager();
 		RawGPS rawGPS = new RawGPS();
 		private static Event[] importedGpsEvents;
@@ -55,6 +56,12 @@ namespace FrameWorkApp
 			DismissModalViewControllerAnimated(true);
 			StopScreen.fileManager.clearCurrentTripEventFile();
 			StopScreen.fileManager.clearCurrentTripDistanceFile();
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
 		}
 
 		public static Event[] getEvents ()
