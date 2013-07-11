@@ -18,10 +18,7 @@ namespace FrameWorkApp
 		MonoTouch.UIKit.UILabel eventCounter { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel latReading { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel longReading { get; set; }
+		MonoTouch.UIKit.UILabel currentSpeedLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel maxAvgAcc { get; set; }
@@ -35,11 +32,11 @@ namespace FrameWorkApp
 		[Outlet]
 		MonoTouch.UIKit.UILabel speedDiffLabel { get; set; }
 
-		[Action ("resetMaxValues:")]
-		partial void resetMaxValuesOnLabelsOnStopScreen (MonoTouch.Foundation.NSObject sender);
-
 		[Action ("stopButton:")]
 		partial void stopButton (MonoTouch.Foundation.NSObject sender);
+
+		[Action ("resetMaxValues:")]
+		partial void resetMaxValuesOnLabelsOnStopScreen (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -53,14 +50,9 @@ namespace FrameWorkApp
 				eventCounter = null;
 			}
 
-			if (latReading != null) {
-				latReading.Dispose ();
-				latReading = null;
-			}
-
-			if (longReading != null) {
-				longReading.Dispose ();
-				longReading = null;
+			if (currentSpeedLabel != null) {
+				currentSpeedLabel.Dispose ();
+				currentSpeedLabel = null;
 			}
 
 			if (maxAvgAcc != null) {

@@ -92,15 +92,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JY9-Oe-Jb1">
-                                <rect key="frame" x="20" y="20" width="66" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ey3-Mi-53k">
-                                <rect key="frame" x="20" y="49" width="80" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Speed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JY9-Oe-Jb1">
+                                <rect key="frame" x="20" y="20" width="116" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -158,20 +151,6 @@
                                     <segue destination="hUB-iG-h4m" kind="push" id="UHS-pT-xv5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IAE-L3-rV3">
-                                <rect key="frame" x="108" y="20" width="185" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wju-LG-Z5X">
-                                <rect key="frame" x="108" y="49" width="185" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Iml-LG-DoP">
                                 <rect key="frame" x="108" y="78" width="185" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,6 +200,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dof-5H-SEz">
+                                <rect key="frame" x="144" y="20" width="156" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -229,9 +215,8 @@
                         <outlet property="SpeedAfterEventLabel" destination="Lg3-5k-VnO" id="W9t-SL-nYe"/>
                         <outlet property="SpeedAtEventLabel" destination="dWE-kx-Z6M" id="R94-XG-QgC"/>
                         <outlet property="avgAcc" destination="Iml-LG-DoP" id="3zv-74-oF8"/>
+                        <outlet property="currentSpeedLabel" destination="Dof-5H-SEz" id="AMy-Lh-d5Y"/>
                         <outlet property="eventCounter" destination="aaQ-za-Y86" id="fGz-FM-gO5"/>
-                        <outlet property="latReading" destination="IAE-L3-rV3" id="1lu-dQ-nwe"/>
-                        <outlet property="longReading" destination="Wju-LG-Z5X" id="NtE-ja-4P7"/>
                         <outlet property="maxAvgAcc" destination="wSs-NY-W8p" id="5gH-ho-WTp"/>
                         <outlet property="speedDiffLabel" destination="Rmk-ta-HyI" id="CrP-Rd-gKk"/>
                     </connections>
@@ -1093,6 +1078,7 @@
                 <relationship kind="outlet" name="SpeedAfterEventLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="SpeedAtEventLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="avgAcc" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentSpeedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="eventCounter" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="latReading" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="longReading" candidateClass="UILabel"/>
