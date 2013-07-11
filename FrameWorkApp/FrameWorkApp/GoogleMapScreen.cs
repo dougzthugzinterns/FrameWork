@@ -6,7 +6,6 @@ using MonoTouch.CoreLocation;
 using System.Collections.Generic;
 using Google.Maps;
 
-
 namespace FrameWorkApp
 {
 	public partial class GoogleMapScreen : UIViewController
@@ -14,6 +13,7 @@ namespace FrameWorkApp
 		Google.Maps.MapView mapView;
 		private Event[] markersToAdd;
 		private CLLocationCoordinate2D[] pathMarkers;
+		SDMFileManager fileManager = new SDMFileManager();
 
 		public GoogleMapScreen (IntPtr handle) : base (handle)
 		{
@@ -35,15 +35,15 @@ namespace FrameWorkApp
 			//markersToAdd = (CLLocationCoordinate2D[])StopScreenn.coordList.ToArray (typeof(CLLocationCoordinate2D));
 
 			//EVENTS
-			markersToAdd = TripSummaryScreen.importedGpsEvents;
+			markersToAdd = TripSummaryScreen.getEvents ();
 		}
-
 
 		public GoogleMapScreen (IntPtr handle,Event[] markerLocationsToAdd) : base (handle)
 		{
 			markersToAdd = markerLocationsToAdd;
 		}
-		//COmment
+
+		//Comment
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -63,6 +63,7 @@ namespace FrameWorkApp
 				};
 			}
 		}
+
 		/*
 		public void addMarkerAtLocationsWithCustomMarker(CLLocationCoordinate2D position, string title, string snippet, UIImage markerIcon){
 			var newMarker = new Marker(){
@@ -105,7 +106,6 @@ namespace FrameWorkApp
 			mapView.MoveCamera(CameraUpdate.FitBounds(new CoordinateBounds(northWestBound, southEastBound)));	
 			float desiredZoomlevel = (float) (getZoomLevel (minimumLatitudeInGoogle,maximumLatitudeInGoogle,minimumLongitudeInGoogle,maximumLongitudeInGoogle,mapViewOutlet.Frame.Size.Width,mapViewOutlet.Frame.Size.Height));
 			mapView.MoveCamera (CameraUpdate.ZoomToZoom(desiredZoomlevel));
-
 		}
 
 		public override void LoadView ()
@@ -117,12 +117,14 @@ namespace FrameWorkApp
 			addMarkerAtLocationsWithGoogleMarker (this.markersToAdd);
 			View = mapView;
 		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 			cameraAutoZoomAndReposition (this.markersToAdd);
 		}
+
 		public override void ViewWillAppear (bool animated)
 		{
 			//Get path for the trip that will be shown on the map
@@ -164,4 +166,3 @@ namespace FrameWorkApp
 		}
 	}
 }
-
