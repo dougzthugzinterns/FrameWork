@@ -2,6 +2,8 @@ using MonoTouch.UIKit;
 using System;
 using MonoTouch.Foundation;
 using MonoTouch.CoreLocation;
+using System.Collections.Generic;
+
 namespace FrameWorkApp
 {
 	public partial class MainViewController : UIViewController
@@ -35,14 +37,26 @@ namespace FrameWorkApp
 
 			//Phone Crashed during a Trip in Progress, write data recovered to trip log.
 			if (fileManager.currentTripInProgress()) {
+
+				User currentUser = fileManager.readUserFile ();
+
 				//Read Data from Recovered File.
-				fileManager.addDataToTripLogFile(new Trip(fileManager.getDateOfLastPointEnteredInCurrentTrip(), fileManager.readDataFromTripEventFile().Length));
+				int numberOfEvents = fileManager.readDataFromTripEventFile ().Length;
+				fileManager.addDataToTripLogFile(new Trip(fileManager.getDateOfLastPointEnteredInCurrentTrip(), numberOfEvents));
+				RawGPS rawGPS = new RawGPS ();
+				double totalDistance = rawGPS.convertMetersToKilometers(rawGPS.CalculateDistanceTraveled(new List<CLLocation>(fileManager.readDataFromTripDistanceFile())));
+
+				//Update user data
+				currentUser.updateData (totalDistance, numberOfEvents);
+				fileManager.updateUserFile(currentUser);
+
+				//Clear current trip files
 				fileManager.clearCurrentTripEventFile();
 				fileManager.clearCurrentTripDistanceFile ();
+
 				//Display Alert
 				new UIAlertView ("Trip Data Recovered!", "We detected your phone has shut down during a trip, but good news we managed to recover your data up to that point your phone shut down.", null, "Yay!", null).Show ();
-
-			} 
+			}
 
 			if(CLLocationManager.Status==CLAuthorizationStatus.NotDetermined){
 
@@ -53,16 +67,13 @@ namespace FrameWorkApp
 				};
 				manager.StartUpdatingLocation ();
 				manager.StopUpdatingLocation ();
-				
 			}
 			else{
 				if(CLLocationManager.Status == CLAuthorizationStatus.Denied){
 					new UIAlertView("Location Services must be enabled to use application!","We noticed you have disabled location services for this application. Please enable these before continuing. Please enable these before starting a new trip.", null, "OK", null).Show();
 				}
 			}
-
 		}
-	
 
 		public override void ViewWillAppear (bool animated)
 		{
